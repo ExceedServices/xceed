@@ -1,0 +1,69 @@
+.bgcontainer
+{
+    width:100%;
+    height:100%;
+    margin-bottom:0;
+    margin-top:0;
+    background-color: #bcc9e8;
+    /* Chrome 10+ */ background: -webkit-linear-gradient(left, #bcc9e8, #ffffff, #bcc9e8); 
+    /* Firefox 3.6+ */ background: -moz-linear-gradient(left, #bcc9e8, #ffffff, #bcc9e8); 
+    /* IE 10 */ background: -ms-linear-gradient(left, #bcc9e8, #ffffff, #bcc9e8); 
+    background: linear-gradient(left, #bcc9e8, #ffffff, #bcc9e8); 
+    background-repeat: repeat;
+}
+
+#logo
+{
+    /*box-shadow: 10px 10px 5px #888888;
+    display: inline;*/
+    float: left;
+}
+
+#userbar
+{
+    float:right;
+}
+
+#navbar
+{
+    margin: auto;
+    text-align:center;
+}
+
+.username
+{
+    font-weight:bold;
+}
+
+.floatreset
+{
+    clear:both;
+}
+
+.bodywrap
+{
+    margin-left:10%;
+    margin-right:10%;
+}
+
+html,body
+{
+    margin:0;
+    height:100%;
+}
+
+
+.widget
+{
+    width:100%;
+}
+
+.calTable
+{
+    table-layout:fixed;
+    border-spacing: 0px;
+    empty-cells:show;
+    width: 80%;
+    height: 250px;
+    margin:auto;
+}
