@@ -6,38 +6,34 @@ if(!isset($_SESSION))
     session_start();
     
 if(!isset($_SESSION['id']))
-    {
-
-if (isset($_REQUEST['email']) and isset($_REQUEST['password']))
 {
-    $email = $_REQUEST['email'];
-    $q = "SELECT * FROM `profile` WHERE `email` = '$email'";
-    $result = mysql_query($q);
-    if ($result)
-    {
-        $profile = mysql_fetch_array($result);
-        //echo($profile);
-    }
-    else
-    {
-        header("location: user-login.php");
-    }
-    if ($email == $profile['email'] and md5($_REQUEST['password']) == $profile['password'])
-    {
-        $_SESSION['id'] = $profile['id'];
-    }
-    else
-    {
-        header("location: /");
-    }
 
+    if (isset($_REQUEST['email']) and isset($_REQUEST['password']))
+    {
+        $login = $_REQUEST['email'];
+        $q = "SELECT * FROM `Users` WHERE `email` = '$login'";
+        $result = mysql_query($q);
+        if ($result)
+            $user = mysql_fetch_array($result);
+        else
+            header("location: index.php");
+
+        if ($login == $user['email'] and md5($_REQUEST['password']) == $user['password'])
+        {
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['name'] = $user['name'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['roles'] = $user['roles'];
+        }
+        else
+            header("location: index.php");
+
+    }
 }
-}
-//If not authenticated, bail!
+
+//If not authenticated after all that, bail! Sanity Check
 if (!isset($_SESSION['id']))
-{
     header('location: /');
-}
     
 
 function makeLoginDisplay()

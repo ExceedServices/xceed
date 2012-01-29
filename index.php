@@ -35,13 +35,10 @@ function makeLoginDisplay()
         <div class="bgcontainer">
             <div class="bodywrap">
                 <div id="logo"><img src="logo.jpg" /></div>
-                <div id="userbar">
-		            <div class="username"><?php makeLoginDisplay(); ?></div>
-                    <div class="logout">Logoff</div>
-		        </div>
                 <br class="floatreset">
-                <div id="navbar">NAVIGATION GOES HERE</div>
-                <div data-loader="calendar" class="widget">SOME KIND OF WIDGIT </div>
+                <div class="login-form-container">
+                    <?php makeLoginDisplay(); ?>
+		        </div>
             </div>
         </div>
     </body>
