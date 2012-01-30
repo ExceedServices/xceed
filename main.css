@@ -89,3 +89,25 @@ select
     margin:auto;
     text-align:center;
 }
+
+.formTable
+{
+    text-align:center;
+    margin: auto;
+}
+
+.dayNumbers
+{
+   text-align:left;
+}
+
+td
+{
+   vertical-align:top;
+}
+
+.newCalcBtn
+{
+    text-align:left;
+    margin-left: 10%;
+}

@@ -4,7 +4,7 @@ require_once("connect.php");
 
 if(!isset($_SESSION))
     session_start();
-    
+
 if(!isset($_SESSION['id']))
 {
 
@@ -34,7 +34,7 @@ if(!isset($_SESSION['id']))
 //If not authenticated after all that, bail! Sanity Check
 if (!isset($_SESSION['id']))
     header('location: /');
-    
+
 
 function makeLoginDisplay()
 {
@@ -62,8 +62,9 @@ function makeLoginDisplay()
                 <div id="userbar">
     		        <?php makeLoginDisplay(); ?>
 		        </div>
-                <br class="floatreset">
+                <br class="floatreset"/>
                 <div id="navbar">NAVIGATION GOES HERE</div>
+                <br class="floatreset"/>
                 <div data-loader="calendar" class="widget">Loading Calendar</div>
             </div>
         </div>

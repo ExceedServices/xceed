@@ -1,8 +1,34 @@
-<?php $isVisible = false;
-if($isVisible){
+<?php $isVisible = true;
+require_once("connect.php");
+if($isVisible) {
+$moNum = 2;
+$year = 2012;
+$date = mktime(0,0,0,$moNum,1,$year);
 $dom = 0;
-$dow = date("w",mktime(0,0,0,2,1,2012));
-$dim = date("t",mktime(0,0,0,2,1,2012));?>
+$dow = date("w", $date);
+$dim = date("t", $date);
+$currMo = date("F", $date);?>
+<div style = "text-align:center;">
+    <input type = "submit" value = "<" style="display:inline;"/>
+    <div style="display:inline;"><?php echo($currMo) ?></div>
+    <input type = "submit" value = ">" style="display:inline;"/>
+</div>
+<?php
+
+$sql = "select title, day, id\n"
+    . "from Jobs\n"
+    . "where month = $moNum"
+    . " and year = $year\n"
+    . "order by day";
+$result = mysql_query($sql);
+echo(mysql_error());
+$calItems = array();
+$calIds = array();
+while($item = mysql_fetch_array($result))
+{
+    $calItems[$item["day"]] = '<div id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
+}
+?>
 <table class="calTable" border =1>
     <tr>
         <th>Sun</td>
@@ -22,13 +48,16 @@ for($i=0;$i<5;$i++)
         <td><?php if($dow == $j or($dom >0 and $dom<$dim))
                   {
                       $dom++;
-                      echo($dom);
-                      // SQL to retrieve job info
+                      echo('<div class = "dayNumbers">'.$dom."</div>");
+                      echo($calItems[$dom]);
                   }?></td>
     <?php } ?>
     </tr>
 <?php } ?>
 </table>
+<div class = "newCalcBtn">
+   <input type = "submit" value = "New Calendar Item"/>
+</div>
 <?php } else {?>
 <div class="calForm">
     <form>
@@ -57,7 +86,7 @@ for($i=0;$i<5;$i++)
                </td>
                <td>
                    <select>
-		    		    <!--Valid invoices-->
+                        <!--Valid invoices-->
                    </select>
                </td>
            </tr>
