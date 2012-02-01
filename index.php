@@ -3,6 +3,9 @@
 if (!isset($_SESSION))
     session_start();
 
+if (isset($_SESSION['id']))
+    header("location: dashboard.php");
+
 function makeLoginDisplay()
 {
     if(isset($_SESSION['name']))
@@ -19,7 +22,7 @@ function makeLoginDisplay()
     else
     { ?>
                 <form action="dashboard.php" method="post">
-                    login: <input name="email" type="email" required="required" placeholder="username" /> <input name="password" type="password" required="required" placeholder="password"/> <input type="submit" value="login" />
+                    <input name="email" type="email" required="required" placeholder="username" /> <input name="password" type="password" required="required" placeholder="password"/> <input type="submit" value="login" />
                 </form>
 
     <?php }
