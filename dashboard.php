@@ -64,8 +64,8 @@ function makeLoginDisplay()
 		        </div>
                 <br class="floatreset"/>
                 <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
-                <!--<div data-loader="notifications" class="dashlet">Notifications here.</div>-->
-                <div id="calendar-dashlet" data-loader="calendar" class="dashlet">Loading Calendar</div>
+                <div id="navbar">NAVIGATION GOES HERE</div>
+                <div id="calendardashlet" data-loader="calendar" class="widget">Loading Calendar</div>
             </div>
         </div>
         <div id="fortune"><?php passthru("fortune"); ?></div>
