@@ -7,8 +7,6 @@ else
 {
     $isVisible = true;
 }
-require_once("connect.php");
-if($isVisible) {
 if(isset($_GET['m']))
 {
     $moNum = $_GET['m'];
@@ -25,6 +23,8 @@ else
 {
     $year = date('Y',time());
 }
+require_once("connect.php");
+if($isVisible) {
 $date = mktime(0,0,0,$moNum,1,$year);
 $dom = 0;
 $dow = date("w", $date);
