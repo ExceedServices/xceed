@@ -1,17 +1,67 @@
-<?php $isVisible = true;
+<?php
+if(isset($_GET['f']))
+{
+    $isVisible = $_GET['f'];
+}
+else
+{
+    $isVisible = true;
+}
 require_once("connect.php");
 if($isVisible) {
-$moNum = 2;
-$year = 2012;
+if(isset($_GET['m']))
+{
+    $moNum = $_GET['m'];
+}
+else
+{
+    $moNum = date('m',time());
+}
+if(isset($_GET['y']))
+{
+    $year = $_GET['y'];
+}
+else
+{
+    $year = date('Y',time());
+}
 $date = mktime(0,0,0,$moNum,1,$year);
 $dom = 0;
 $dow = date("w", $date);
 $dim = date("t", $date);
-$currMo = date("F", $date);?>
+$currMo = date("F", $date);
+
+?>
 <div style = "text-align:center;">
-    <input type = "submit" value = "<" style="display:inline;"/>
-    <div style="display:inline;"><?php echo($currMo) ?></div>
-    <input type = "submit" value = ">" style="display:inline;"/>
+    <input id = "backMonth" type = "submit" value = "<" style = "display:inline;"
+        onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
+                    if($moNum-1 == 0)
+                    {
+                        $monB = 12;
+                        $yearB = $year-1;
+                    }
+                    else
+                    {
+                        $monB = $moNum-1;
+                        $yearB = $year;
+                    }
+                    echo("m=$monB&y=$yearB&f=$isVisible");
+        ?>')"/>
+    <div style = "display:inline;"><?php echo($currMo." ".$year) ?></div>
+    <input id = "forMonth" type = "submit" value = ">" style = "display:inline;"
+        onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
+            if($moNum+1 == 13)
+            {
+                $monF = 1;
+                $yearF = $year+1;
+            }
+            else
+            {
+                $monF = $moNum +1;
+                $yearF = $year;
+            }
+            echo("m=$monF&y=$yearF&f=$isVisible");
+        ?>')"/>
 </div>
 <?php
 
@@ -56,7 +106,11 @@ for($i=0;$i<5;$i++)
 <?php } ?>
 </table>
 <div class = "newCalcBtn">
-   <input type = "submit" value = "New Calendar Item"/>
+   <input type = "submit" value = "New Calendar Item"
+       onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
+               $isVisible = false;
+               echo("m=$moNum&y=$year&f=$isVisible");
+        ?>')"/>
 </div>
 <?php } else {?>
 <div class="calForm">
@@ -117,6 +171,11 @@ for($i=0;$i<5;$i++)
        </table>
        <input type="hidden" value="" name="account_director_id"/>
        <input type="submit" value="Submit"/>
+       <input type="submit" value="Cancel"
+           onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
+               $isVisible = true;
+               echo("m=$moNum&y=$year&f=$isVisible");
+        ?>')"/>
     </form>
 </div>
 <?php } ?>

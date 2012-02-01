@@ -64,8 +64,7 @@ function makeLoginDisplay()
 		        </div>
                 <br class="floatreset"/>
                 <div id="navbar">NAVIGATION GOES HERE</div>
-                <br class="floatreset"/>
-                <div data-loader="calendar" class="widget">Loading Calendar</div>
+                <div id="calendardashlet" data-loader="calendar" class="widget">Loading Calendar</div>
             </div>
         </div>
     </body>
