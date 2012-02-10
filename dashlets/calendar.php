@@ -76,7 +76,7 @@ $calItems = array();
 $calIds = array();
 while($item = mysql_fetch_array($result))
 {
-    $calItems[$item["day"]] = '<div id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
+    $calItems[$item["day"]] = '<div class="cal-item" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
 }
 ?>
 <table class="calTable" border =1>
@@ -258,4 +258,5 @@ while($item2 = mysql_fetch_array($result2))
        <div id=sqlString><?php echo($InsertSQL);?></div>
     </form>
 </div>
+<div id="calander-details-overlay"></div>
 <?php } ?>

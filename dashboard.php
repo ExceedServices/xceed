@@ -54,6 +54,7 @@ function makeLoginDisplay()
         <link rel="stylesheet" href="main.css" type="text/css"></link>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
         <script type="text/javascript" src="whiteboard.js" ></script>
+        <script type="text/javascript" src="js/calendar.js" ></script>
     </head>
     <body>
         <div class="bgcontainer">
