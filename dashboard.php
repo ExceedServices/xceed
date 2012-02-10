@@ -48,13 +48,14 @@ function makeLoginDisplay()
         <?php
     }
 }
-?><!DOCTYPE html>
+?><!doctype html>
 <html>
     <head>
         <link rel="stylesheet" href="main.css" type="text/css"></link>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-        <script type="text/javascript" src="whiteboard.js" ></script>
-        <script type="text/javascript" src="js/calendar.js" ></script>
+        <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.17.custom.css" type="text/css"></link>
+        <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="js/whiteboard.js" ></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
     </head>
     <body>
         <div class="bgcontainer">

@@ -196,7 +196,7 @@ while($item1 = mysql_fetch_array($result1))
                    <label for="startTime">Start Time</label>
                </td>
                <td>
-                   <input id="startTime" type="datetime" name="start_time"/>
+                   <input id="startTime" type="datetime" class="datetime" name="start_time"/>
                </td>
            </tr>
            <tr>
@@ -204,7 +204,7 @@ while($item1 = mysql_fetch_array($result1))
                    <label for="endTime">End Time</label>
                </td>
                <td>
-                   <input id="endTime" type="datetime" name="end_time"/>
+                   <input id="endTime" class="datetime" type="datetime" name="end_time"/>
                <td>
            </tr>
            <tr>
@@ -258,5 +258,8 @@ while($item2 = mysql_fetch_array($result2))
        <div id=sqlString><?php echo($InsertSQL);?></div>
     </form>
 </div>
+<script>
+$('.datetime').datepicker();
+</script>
 <div id="calander-details-overlay"></div>
 <?php } ?>
