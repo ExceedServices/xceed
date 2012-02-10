@@ -51,6 +51,8 @@ $dim = date("t", $date);
 $currMo = date("F", $date);
 
 ?>
+
+<div id="calander-details-overlay"></div>
 <div style = "text-align:center;">
     <input id = "backMonth" type = "submit" value = "<" style = "display:inline;"
         onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
@@ -281,5 +283,4 @@ while($item2 = mysql_fetch_array($result2))
 	$('.datetime').datetimepicker();
 </script>
 
-<div id="calander-details-overlay"></div>
 <?php } ?>
