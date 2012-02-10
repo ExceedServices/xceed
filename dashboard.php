@@ -55,6 +55,7 @@ function makeLoginDisplay()
         <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.17.custom.css" type="text/css"></link>
         <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="js/whiteboard.js" ></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="js/datetimepicker.js"></script>
     </head>
@@ -68,7 +69,7 @@ function makeLoginDisplay()
                 <br class="floatreset"/>
                 <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
                 <div id="navbar">NAVIGATION GOES HERE</div>
-                <div id="calendardashlet" data-loader="calendar" class="widget">Loading Calendar</div>
+                <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
             </div>
         </div>
         <div id="fortune"><?php passthru("fortune"); ?></div>
