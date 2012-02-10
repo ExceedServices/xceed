@@ -112,9 +112,19 @@ for($i=0;$i<5;$i++)
                echo("m=$moNum&y=$year&f=$isVisible");
         ?>')"/>
 </div>
-<?php } else {?>
+<?php }
+else {
+$InsertSQL = "insert into Jobs (title,client_id,invoice_id,location,ticket_id,month,day,year,start_time,end_time,account_director_id,inventory_id,proposal_id)\n"
+      ."values(".$_REQUEST['title'].","
+      .$_REQUEST['client'].","
+      .$_REQUEST['invoice'].","
+      .$_REQUEST['location'].","
+      ."NULL,".date('m',$_REQUEST['start_time']).",".date('j',$_REQUEST['start_time']).",".date('Y',$_REQUEST['start_time']).","
+      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $REQUEST['end_time']).","
+      .$_REQUEST['account_director_id'].",NULL,NULL)";
+?>
 <div class="calForm">
-    <form>
+    <form method="post">
         <table class="formTable">
             <tr>
                 <td>
@@ -129,8 +139,17 @@ for($i=0;$i<5;$i++)
                     <label>Client</label>
                </td>
                <td>
-                    <select>
-                        <!--Valid clients-->
+                    <select name='client'>
+                        <!--Valid clients  VALUE=Database value!!!-->
+<?php
+
+$sql1 = "SELECT id,name FROM Clients";
+$result1 = mysql_query($sql1);
+while($item1 = mysql_fetch_array($result1))
+{
+    echo("<option id='".$item1['id']."' value='".$item1['id']."' >".$item1['name']."</option>");
+}
+?>
                     </select>
                </td>
            </tr>
@@ -139,7 +158,7 @@ for($i=0;$i<5;$i++)
                    <label>Invoice</label>
                </td>
                <td>
-                   <select>
+                   <select name='invoice'>
                         <!--Valid invoices-->
                    </select>
                </td>
@@ -150,6 +169,26 @@ for($i=0;$i<5;$i++)
                </td>
                <td>
                    <input id="location" type="text" name="location"/>
+               </td>
+           </tr>
+               <td>
+                   <label>Job Ticket</label>
+               </td>
+               <td>
+                   <select name='jobTicket'>
+                       <!--Valid JobTickets-->
+                   </select>
+               </td>
+           <tr>
+           </tr>
+           <tr>
+               <td>
+                   <label>Tasking Order</label>
+               </td>
+               <td>
+                   <select name='taskingOrder'>
+                       <!--Valid TaskingOrders-->
+                   </select>
                </td>
            </tr>
            <tr>
@@ -168,14 +207,55 @@ for($i=0;$i<5;$i++)
                    <input id="endTime" type="datetime" name="end_time"/>
                <td>
            </tr>
+           <tr>
+               <td>
+                   <label>Account Director</label>
+               </td>
+               <td>
+                   <select name='acountDirectorId'>
+                       <!--List account directors-->
+<?php
+
+$sql2 = "SELECT id,name FROM Users WHERE Roles like '%|ad|%'";
+$result2 = mysql_query($sql2);
+while($item2 = mysql_fetch_array($result2))
+{
+    echo("<option id='".$item2['id']."' value='".$item2['id']."' >".$item2['name']."</option>");
+}
+?>
+                   </select>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label>Inventory</label>
+               </td>
+               <td>
+                   <select name='nventoryId'>
+                       <!-- valid inventory-->
+                   </select>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label>Proposal</label>
+               </td>
+               <td>
+                   <select name='propsalId'>
+                       <!--Valid proposals-->
+                   </select>
+               </td>
+           </tr>
+           <!--proposal id-->
        </table>
-       <input type="hidden" value="" name="account_director_id"/>
-       <input type="submit" value="Submit"/>
+       <input type="submit" value="Submit"
+           onClick = $('#sqlString').InnerHTML=$InserSQL/>
        <input type="submit" value="Cancel"
            onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
                $isVisible = true;
                echo("m=$moNum&y=$year&f=$isVisible");
         ?>')"/>
+       <div id=sqlString><?php echo($InsertSQL);?></div>
     </form>
 </div>
 <?php } ?>
