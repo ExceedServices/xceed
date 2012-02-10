@@ -8,11 +8,11 @@ if(isset($_REQUEST['Title']))
       .$_REQUEST['invoice'].","
       .$_REQUEST['location'].","
       ."NULL,".date('m',$_REQUEST['start_time']).",".date('j',$_REQUEST['start_time']).",".date('Y',$_REQUEST['start_time']).","
-      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $REQUEST['end_time']).","
+      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $_REQUEST['end_time']).","
       .$_REQUEST['account_director_id'].",NULL,NULL)";
 
 	$insertResult = mysql_query($insertSQL);
-	if(! $insertResult)
+	if(!$insertResult)
 	{
 		die(mysql_error());
 	}
@@ -265,7 +265,7 @@ while($item2 = mysql_fetch_array($result2))
            <!--proposal id-->
        </table>
        <input type="submit" value="Submit"
-           onClick = "$.Post('calendat.php', $(#calendardashlet').load('loader.php?dashlet=calendar&<?php
+           onClick = "$.Post('dasblets/calendar.php', $(#calendardashlet').load('loader.php?dashlet=calendar&<?php
            	   $isVisible = true;
                echo("m=$moNum&y=$year&f=$isVisible");
         ?>'))"/>
@@ -277,7 +277,7 @@ while($item2 = mysql_fetch_array($result2))
        <div id=sqlString><?php echo($InsertSQL);?></div>
     </form>
 </div>
-<script>
+<script type="text/javascript">
 	$('.datetime').datetimepicker();
 </script>
 
