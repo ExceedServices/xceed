@@ -1,4 +1,23 @@
 <?php
+$insertResult = false;
+if(isset($_REQUEST['Title']))
+{
+	$insertSQL = "insert into Jobs (title,client_id,invoice_id,location,ticket_id,month,day,year,start_time,end_time,account_director_id,inventory_id,proposal_id)\n"
+      ."values(".$_REQUEST['title'].","
+      .$_REQUEST['client'].","
+      .$_REQUEST['invoice'].","
+      .$_REQUEST['location'].","
+      ."NULL,".date('m',$_REQUEST['start_time']).",".date('j',$_REQUEST['start_time']).",".date('Y',$_REQUEST['start_time']).","
+      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $REQUEST['end_time']).","
+      .$_REQUEST['account_director_id'].",NULL,NULL)";
+
+	$insertResult = mysql_query($insertSQL);
+	if(! $insertResult)
+	{
+		die(mysql_error());
+	}
+}
+
 if(isset($_GET['f']))
 {
     $isVisible = $_GET['f'];
@@ -105,6 +124,11 @@ for($i=0;$i<5;$i++)
     </tr>
 <?php } ?>
 </table>
+<?php
+if($insertResult)
+{?>
+	<div class = "cal-item">New Calendar Item added Successfully!</div>
+<?php } ?>
 <div class = "newCalcBtn">
    <input type = "submit" value = "New Calendar Item"
        onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
@@ -113,16 +137,7 @@ for($i=0;$i<5;$i++)
         ?>')"/>
 </div>
 <?php }
-else {
-$InsertSQL = "insert into Jobs (title,client_id,invoice_id,location,ticket_id,month,day,year,start_time,end_time,account_director_id,inventory_id,proposal_id)\n"
-      ."values(".$_REQUEST['title'].","
-      .$_REQUEST['client'].","
-      .$_REQUEST['invoice'].","
-      .$_REQUEST['location'].","
-      ."NULL,".date('m',$_REQUEST['start_time']).",".date('j',$_REQUEST['start_time']).",".date('Y',$_REQUEST['start_time']).","
-      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $REQUEST['end_time']).","
-      .$_REQUEST['account_director_id'].",NULL,NULL)";
-?>
+else {?>
 <div class="calForm">
     <form method="post">
         <table class="formTable">
@@ -197,6 +212,7 @@ while($item1 = mysql_fetch_array($result1))
                </td>
                <td>
                    <input id="startTime" type="datetime" class="datetime" name="start_time"/>
+
                </td>
            </tr>
            <tr>
@@ -204,7 +220,7 @@ while($item1 = mysql_fetch_array($result1))
                    <label for="endTime">End Time</label>
                </td>
                <td>
-                   <input id="endTime" class="datetime" type="datetime" name="end_time"/>
+                   <input id="endTime" class = "datetime" type="datetime" name="end_time"/>
                <td>
            </tr>
            <tr>
@@ -249,7 +265,10 @@ while($item2 = mysql_fetch_array($result2))
            <!--proposal id-->
        </table>
        <input type="submit" value="Submit"
-           onClick = $('#sqlString').InnerHTML=$InserSQL/>
+           onClick = "$.Post('calendat.php', $(#calendardashlet').load('loader.php?dashlet=calendar&<?php
+           	   $isVisible = true;
+               echo("m=$moNum&y=$year&f=$isVisible");
+        ?>'))"/>
        <input type="submit" value="Cancel"
            onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
                $isVisible = true;
@@ -259,7 +278,8 @@ while($item2 = mysql_fetch_array($result2))
     </form>
 </div>
 <script>
-$('.datetime').datepicker();
+	$('.datetime').datetimepicker();
 </script>
+
 <div id="calander-details-overlay"></div>
 <?php } ?>
