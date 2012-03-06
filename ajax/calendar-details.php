@@ -11,9 +11,7 @@ $result = mysql_query($q);
 $job = mysql_fetch_assoc($result);
 
 ?>
-<ul>
-    <li><?php echo($job['title']); ?></li>
-    <li>INV#<?php echo($job['invoice_id']); ?></li>
-    <li><?php echo($job['location']); ?></li>
-    <li><?php echo(date("H:M:A",$job['start_time'])); ?></li>
-</ul>
+<h3><?php echo($job['title']); ?></h3>
+<p>INV#<?php echo($job['invoice_id']); ?></p>
+<p><?php echo($job['location']); ?></p>
+<p><?php echo(date("h:i A",$job['start_time'])); ?></p>

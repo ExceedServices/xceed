@@ -79,7 +79,7 @@ $calItems = array();
 $calIds = array();
 while($item = mysql_fetch_array($result))
 {
-    $calItems[$item["day"]] = '<div class="cal-item" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
+    $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
 }
 ?>
 <table class="calTable" border =1>

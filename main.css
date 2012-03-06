@@ -73,6 +73,14 @@ select
     width:100%;
 }
 
+.cal-popup
+{
+    padding: 20px;
+    background-color: #888888;
+    border-radius: 15px;
+    
+}
+
 .login-form-container
 {
     margin:auto;
