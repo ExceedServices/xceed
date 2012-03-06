@@ -51,7 +51,11 @@ function makeLoginDisplay()
 ?><!doctype html>
 <html>
     <head>
+        <!-- our original -->
         <link rel="stylesheet" href="main.css" type="text/css"></link>
+        <!-- google fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Asap|Ubuntu:500' rel='stylesheet' type='text/css'> 
+        <!-- for datepicker -->
         <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.17.custom.css" type="text/css"></link>
         <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="js/whiteboard.js" ></script>
@@ -70,6 +74,7 @@ function makeLoginDisplay()
                 <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
                 <div id="navbar">NAVIGATION GOES HERE</div>
                 <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
+                <div id="updatesdashlet" class="widget"><?php include("dashlets/updates.php");?></div>
             </div>
         </div>
         <div id="fortune"><?php passthru("fortune"); ?></div>
