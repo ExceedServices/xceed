@@ -16,7 +16,7 @@ function addRole($userID, $role)
     
     array_push($roles, $role);
     
-    $newroles = join($roles, '|'):
+    $newroles = join($roles, '|');
     
     mysql_query("UPDATE `xceeddev`.`Users` SET `Roles` = '$newroles' WHERE `Users`.`id` = $userID;");
     $_SESSTION['roles'] = $newroles;
@@ -32,7 +32,7 @@ function removeRole($userID, $role)
     $index = array_search($role, $roles);
     unset($roles[$index]);
     
-    $newroles = join($roles, '|'):
+    $newroles = join($roles, '|');
     
     mysql_query("UPDATE `xceeddev`.`Users` SET `Roles` = '$newroles' WHERE `Users`.`id` = $userID;");
     $_SESSTION['roles'] = $newroles;
