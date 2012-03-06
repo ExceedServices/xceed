@@ -3,7 +3,7 @@ require_once("connect.php");
 require_once("roles.php");
 ?>
 
-<?php $gitOutput = exec("git diff --shortstat orgin/master");
+<?php $gitOutput = exec("git diff --shortstat origin/master");
     if (strlen(trim($gitOutput))!=0)
     {
     ?><h3>Updates</h3>
