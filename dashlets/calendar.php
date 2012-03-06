@@ -1,22 +1,4 @@
 <?php
-$insertResult = false;
-if(isset($_REQUEST['Title']))
-{
-	$insertSQL = "insert into Jobs (title,client_id,invoice_id,location,ticket_id,month,day,year,start_time,end_time,account_director_id,inventory_id,proposal_id)\n"
-      ."values(".$_REQUEST['title'].","
-      .$_REQUEST['client'].","
-      .$_REQUEST['invoice'].","
-      .$_REQUEST['location'].","
-      ."NULL,".date('m',$_REQUEST['start_time']).",".date('j',$_REQUEST['start_time']).",".date('Y',$_REQUEST['start_time']).","
-      .date("H:i:s", $REQUEST['start_time']).",".date("H:i:s", $_REQUEST['end_time']).","
-      .$_REQUEST['account_director_id'].",NULL,NULL)";
-
-	$insertResult = mysql_query($insertSQL);
-	if(!$insertResult)
-	{
-		die(mysql_error());
-	}
-}
 
 if(isset($_GET['f']))
 {
@@ -126,11 +108,6 @@ for($i=0;$i<5;$i++)
     </tr>
 <?php } ?>
 </table>
-<?php
-if($insertResult)
-{?>
-	<div class = "cal-item">New Calendar Item added Successfully!</div>
-<?php } ?>
 <div class = "newCalcBtn">
    <input type = "submit" value = "New Calendar Item"
        onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
@@ -141,7 +118,7 @@ if($insertResult)
 <?php }
 else {?>
 <div class="calForm">
-    <form method="post">
+    <form method="post" action="insertCalItem.php">
         <table class="formTable">
             <tr>
                 <td>
@@ -230,7 +207,7 @@ while($item1 = mysql_fetch_array($result1))
                    <label>Account Director</label>
                </td>
                <td>
-                   <select name='acountDirectorId'>
+                   <select name='accountDirectorId'>
                        <!--List account directors-->
 <?php
 
@@ -266,11 +243,7 @@ while($item2 = mysql_fetch_array($result2))
            </tr>
            <!--proposal id-->
        </table>
-       <input type="submit" value="Submit"
-           onClick = "$.Post('dasblets/calendar.php', $(#calendardashlet').load('loader.php?dashlet=calendar&<?php
-           	   $isVisible = true;
-               echo("m=$moNum&y=$year&f=$isVisible");
-        ?>'))"/>
+       <input type="submit" value="Submit">
        <input type="submit" value="Cancel"
            onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
                $isVisible = true;
