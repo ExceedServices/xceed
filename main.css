@@ -1,3 +1,18 @@
+html,body
+{
+    margin:0;
+    height:100%;    
+    font-family: 'ASAP', sans-serif;
+    font-weight: 400;
+}
+
+
+h1,h2,h3,h4,h5
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+}
+
 .bgcontainer
 {
     width:100%;
@@ -46,11 +61,7 @@
     margin-right:10%;
 }
 
-html,body
-{
-    margin:0;
-    height:100%;
-}
+
 
 
 .widget
