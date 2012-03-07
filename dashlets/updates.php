@@ -6,7 +6,7 @@ require_once("roles.php");
 <?php $gitOutput = exec("git diff --shortstat origin/master");
     if (strlen(trim($gitOutput))!=0)
     {
-    ?><h3>Updates</h3>
+    ?><h3>Dashboard Software Update</h3>
 <div id="updates-content">
        <p><?php echo($gitOutput); ?>
        <p>Would you like to instantly install these updates? <input type="submit" value="Do Upgrade" onClick = "$('#updates-content').load('ajax/do-updates.php');" /></p>
