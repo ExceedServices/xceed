@@ -5,49 +5,9 @@ require_once("connect.php");
 if(!isset($_SESSION))
     session_start();
 
-if(!isset($_SESSION['id']))
-{
-
-    if (isset($_REQUEST['email']) and isset($_REQUEST['password']))
-    {
-        $login = $_REQUEST['email'];
-        $q = "SELECT * FROM `Users` WHERE `email` = '$login'";
-        $result = mysql_query($q);
-        if ($result)
-            $user = mysql_fetch_array($result);
-        else
-            header("location: index.php");
-
-        if ($login == $user['email'] and md5($_REQUEST['password']) == $user['password'])
-        {
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['roles'] = $user['roles'];
-        }
-        else
-            header("location: index.php");
-
-    }
-}
-
 //If not authenticated after all that, bail! Sanity Check
 if (!isset($_SESSION['id']))
     header('location: /');
-
-
-function makeLoginDisplay()
-{
-    if(isset($_SESSION['name']))
-    {
-        echo($_SESSION['name']);
-        ?>
-        <form action="killsession.php">
-            <input type="submit" value="logout">
-        </form>
-        <?php
-    }
-}
 ?><!doctype html>
 <html>
     <head>
@@ -62,21 +22,21 @@ function makeLoginDisplay()
         <script type="text/javascript" src="js/calendar.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="js/datetimepicker.js"></script>
+		<title>Exceed Services Dashboard</title>
     </head>
     <body>
-        <div class="bgcontainer">
-            <div class="bodywrap">
-                <div id="logo"><img src="logo.jpg" /></div>
-                <div id="userbar">
-    		        <?php makeLoginDisplay(); ?>
-		        </div>
-                <br class="floatreset"/>
-                <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
-                <div id="navbar">NAVIGATION GOES HERE</div>
-                <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
-                <div id="updatesdashlet" class="widget"><?php include("dashlets/updates.php");?></div>
-            </div>
+        <div class="bodywrap">
+            <div id="logo"><img src="logo.jpg" /></div>
+            <div id="userbar">
+		        <?php echo($_SESSION['name']);?> <a href="killsession.php">X</a>
+	        </div>
+            <br class="floatreset"/>
+            <div data-loader="users" class="widget">Retrieving users...</div>
+            <!-- Uncomment for text styling example-->
+            <!--<div data-loader="sample" class = "widget">Loading sample content...</div>-->
+            <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
+            <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
+            <div data-loader="updates" class="widget">Checking for updates...</div>
         </div>
-        <div id="fortune"><?php passthru("fortune"); ?></div>
     </body>
 </html>
