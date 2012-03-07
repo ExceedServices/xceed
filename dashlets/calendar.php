@@ -33,7 +33,7 @@ $dim = date("t", $date);
 $currMo = date("F", $date);
 
 ?>
-
+<h3>Calendar</h3>
 <div id="calander-details-overlay"></div>
 <div style = "text-align:center;">
     <input id = "backMonth" type = "submit" value = "<" style = "display:inline;"
