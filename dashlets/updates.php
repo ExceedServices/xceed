@@ -3,7 +3,9 @@ require_once("connect.php");
 require_once("roles.php");
 ?>
 
-<?php $gitOutput = exec("git diff --shortstat origin/master");
+<?php 
+    exec("git fetch origin");
+    $gitOutput = exec("git diff --shortstat origin/master");
     if (strlen(trim($gitOutput))!=0)
     {
     ?><h3>Dashboard Software Update</h3>
