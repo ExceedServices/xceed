@@ -31,12 +31,14 @@ if (!isset($_SESSION['id']))
 		        <?php echo($_SESSION['name']);?> <a href="killsession.php">X</a>
 	        </div>
             <br class="floatreset"/>
-            <div data-loader="users" class="widget">Retrieving users...</div>
+            <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
+            <div data-loader="contacts" class = "widget">Getting Contacts...</div>
+            <div data-loader="users" data-role = "dev" class="widget">Retrieving users...</div>
             <!-- Uncomment for text styling example-->
             <!--<div data-loader="sample" class = "widget">Loading sample content...</div>-->
-            <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
+
             <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
-            <div data-loader="updates" class="widget">Checking for updates...</div>
+            <div data-loader="updates" data-role="admin" class="widget">Checking for updates...</div>
         </div>
     </body>
 </html>
