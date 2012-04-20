@@ -19,7 +19,7 @@ $(document).ready(function()
 
 $(document).ready(function()
 {
-    $("div").click(function(event)
+    $("body").click(function(event)
     {
          if($(event.target).is(".search-result"))
          {

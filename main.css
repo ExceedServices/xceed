@@ -110,3 +110,17 @@ td
     text-align:left;
     margin-left: 10%;
 }
+
+.contact-search-result
+{
+    padding: 2px;
+    border: 1px black solid;
+    background-color:white;
+    border-radius: 3px;
+    max-width: 30em;
+}
+
+.contact-name
+{
+    font-weight:bold;
+}
