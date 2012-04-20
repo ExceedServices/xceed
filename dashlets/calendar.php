@@ -25,7 +25,7 @@ $currMo = date("F", $date);
 ?>
 <h3>Calendar</h3>
 <div id="calander-details-overlay"></div>
-<div style = "text-align:center;">
+<div style = "text-align:center; margin:5;">
     <input id = "backMonth" type = "submit" value = "<" style = "display:inline;"
         onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
                     if($moNum-1 == 0)
@@ -72,32 +72,32 @@ while($item = mysql_fetch_array($result))
     $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
 }
 ?>
-<table class="calTable" border =1>
-    <tr>
-        <th>Sun</td>
-        <th>Mon</td>
-        <th>Tue</td>
-        <th>Wed</td>
-        <th>Thu</td>
-        <th>Fri</td>
-        <th>Sat</td>
-    </tr>
+<div class="calTable">
+    <div class="header-row">
+        <div class="day-header">Sun</div>
+        <div class="day-header">Mon</div>
+        <div class="day-header">Tue</div>
+        <div class="day-header">Wed</div>
+        <div class="day-header">Thu</div>
+        <div class="day-header">Fri</div>
+        <div class="day-header">Sat</div>
+    </div>
 <?php
 for($i=0;$i<5;$i++)
 {?>
-    <tr>
+    <div class="date-row">
     <?php for($j=0; $j<7;$j++)
     {?>
-        <td><?php if($dow == $j or($dom >0 and $dom<$dim))
+        <div class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
                   {
                       $dom++;
                       echo('<div class = "dayNumbers">'.$dom."</div>");
-                      echo($calItems[$dom]);
-                  }?></td>
+                      echo('<div class = "appointments">'.$calItems[$dom].'</div>');
+                  }?></div>
     <?php } ?>
-    </tr>
+    </div>
 <?php } ?>
-</table>
+</div>
 <div class = "newCalcBtn">
    <input id="new-cal-btn" type = "submit" value = "New Calendar Item"/>
 </div>

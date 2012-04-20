@@ -67,13 +67,11 @@ td
 
 .calTable
 {
-    border-spacing: 0px;
-    empty-cells:show;
     min-width:80%;
     max-width:960px;
     min-height:250px;
     margin:auto;
-    border-color: #dddddd;
+    border:1px black solid;
 }
 
 .cal-popup
@@ -109,4 +107,49 @@ td
 {
     text-align:left;
     margin-left: 10%;
+}
+
+.header-row
+{
+    clear:both;
+    height:20px;
+}
+
+.day-header
+{
+    float:left;
+    width:14.028%;
+    height:100%;
+    border:1px black solid;
+    text-align:center;
+}
+
+.date-row
+{
+    clear:both;
+    height:100px;
+}
+
+.day-value
+{
+    float:left;
+    width:14.028%;
+    height:100%;
+    border:1px black solid;
+}
+
+.appointments
+{
+    overflow:auto;
+    height:80%;
+}
+
+.appointments div:nth-child(odd)
+{
+    background-color:blue;
+}
+
+.appointments div:nth-child(even)
+{
+    background-color:yellow;
 }
