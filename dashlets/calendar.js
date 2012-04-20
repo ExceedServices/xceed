@@ -12,3 +12,26 @@ $(document).ready(function()
         }
     });
 });
+
+$(document).ready(function()
+{
+    $('body').click(function(event)
+    {
+        if($(event.target).is('#new-cal-btn'))
+        {
+            $('#new-calendar-item').load('ajax/new-calendar-item.php');
+            $('#new-calendar-item').slideDown();
+        }
+    });
+});
+
+$(document).ready(function()
+{
+    $('body').click(function(event)
+    {
+        if($(event.target).is('#cancel-calendar-button'))
+        {
+            $('#new-calendar-item').slideUp();
+        }
+    });
+});

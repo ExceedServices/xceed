@@ -21,10 +21,9 @@ $(document).ready(function()
 {
     $("div").click(function(event)
     {
-         if($(event.target).is(".search-result"))
+         if($(event.target).is(".contact-search-result"))
          {
              $("#contacts-search-results").slideUp();
-             //alert($(event.target).attr("data-contact-id"));
              $("#contacts-search-detail").load("ajax/contact-card.php?id=" + $(event.target).attr("data-contact-id"));
              $("#contacts-search-detail").slideDown();
          }
