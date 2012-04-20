@@ -14,11 +14,7 @@ $(document).ready(function()
             }
         }
     });
-});
-
-
-$(document).ready(function()
-{
+    
     $("body").click(function(event)
     {
          if($(event.target).is(".search-result"))
@@ -29,15 +25,25 @@ $(document).ready(function()
              $("#contacts-search-detail").slideDown();
          }
     });
-});
 
-$(document).ready(function()
-{
     $('body').click(function(event)
     {
         if($(event.target).is("#contacts-search"))
         {
             $("#contacts-search-detail").slideUp();
+        }
+    });
+    
+    $('body').click(function(event)
+    {
+        if($(event.target).is("#contacts-add"))
+        {
+            $("#contacts-search-results").slideUp();
+            $("#contacts-add-form").load("ajax/contacts-add-form.php");
+            $("#contacts-add-form").sildeDown();
+            $("$contacts-search").slideUp();
+            $("$contacts-add").slideUp();
+            event.preventDefault()
         }
     });
 });

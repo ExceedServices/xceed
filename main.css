@@ -114,12 +114,24 @@ td
 .contact-search-result
 {
     padding: 2px;
-    border: 1px black solid;
+    border: 1px #888888 solid;
     background-color:white;
-    border-radius: 3px;
+    border-radius: 5px;
     max-width: 30em;
 }
 
+.form
+{
+    border-radius: 5px;
+    border: 1px #888888 solid;
+    
+    padding: 5px;
+    margin: 5px;
+    
+    background-color:#ffffff;
+    
+    width: 15em;
+}
 .contact-name
 {
     font-weight:bold;
