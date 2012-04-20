@@ -153,3 +153,31 @@ td
 {
     background-color:yellow;
 }
+
+.contact-search-result
+{
+    margin: 5px;
+    padding: 5px;
+    border: 1px #888888 solid;
+    background-color:white;
+    border-radius: 5px;
+    max-width: 30em;
+}
+
+.form
+{
+    border-radius: 5px;
+    border: 1px #888888 solid;
+    
+    padding: 5px;
+    margin: 5px;
+    
+    background-color:#ffffff;
+    
+    width: 15em;
+}
+
+.contact-name
+{
+    font-weight:bold;
+}

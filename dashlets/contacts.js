@@ -14,12 +14,8 @@ $(document).ready(function()
             }
         }
     });
-});
-
-
-$(document).ready(function()
-{
-    $("div").click(function(event)
+    
+    $("body").click(function(event)
     {
          if($(event.target).is(".contact-search-result"))
          {
@@ -28,15 +24,22 @@ $(document).ready(function()
              $("#contacts-search-detail").slideDown();
          }
     });
-});
 
-$(document).ready(function()
-{
     $('body').click(function(event)
     {
         if($(event.target).is("#contacts-search"))
         {
             $("#contacts-search-detail").slideUp();
+        }
+    });
+    
+    $('body').click(function(event)
+    {
+        if($(event.target).is("#contacts-add"))
+        {
+            $("#contacts-add-form").load("ajax/contacts-add-form.php");
+            $("#contacts-add-form").sildeDown();
+            event.preventDefault()
         }
     });
 });

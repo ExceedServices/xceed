@@ -19,7 +19,17 @@ where (name like '$searchstring%'
 $result = mysql_query($sql);
 echo(mysql_error());
 while($item = mysql_fetch_array($result))
-{?>
-   <div class="search-result" data-contact-id='<?php echo($item["id"])?>'><?php echo($item["name"]." ".$item["contact_phone"]." ".$item["contact_person"])?></div><?php
-}?>
+{
+    $id = $item['id'];
+    $name = $item['name'];
+    $phone = $item['contact_phone'];
+    $person = $item['contact_person'];
+    echo(
+<<<DIV
+
+   <div class="contact-search-result" data-contact-id='{$id}'><div class="contact-name">{$name}</div> <span class="contact-person">{$person}</span> - <span class"contact-phone">{$phone}</span></div>
+
+DIV
+);}
+?>
 </div>

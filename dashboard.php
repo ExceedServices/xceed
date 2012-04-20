@@ -38,7 +38,7 @@ if (!isset($_SESSION['id']))
             <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
             <div data-loader="contacts" class = "widget">Getting Contacts...</div>
             <div data-loader="users" data-role = "dev" class="widget">Retrieving users...</div>
-            <div id="calendardashlet" class="widget"><?php include("dashlets/calendar.php");?></div>
+            <div data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</div>
             <div data-loader="updates" data-role="admin" class="widget">Checking for updates...</div>
         </div>
     </body>
