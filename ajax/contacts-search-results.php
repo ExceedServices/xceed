@@ -1,4 +1,4 @@
-<?php
+ <?php
 if(isset($_GET['q']))
 {
     $searchstring = $_GET['q'];
@@ -20,6 +20,6 @@ $result = mysql_query($sql);
 echo(mysql_error());
 while($item = mysql_fetch_array($result))
 {?>
-   <div data-contact-id='<?php echo($item["name"])?>'><?php echo($item["name"]." ".$item["contact_phone"]." ".$item["contact_person"])?></div><?php
+   <div class="search-result" data-contact-id='<?php echo($item["id"])?>'><?php echo($item["name"]." ".$item["contact_phone"]." ".$item["contact_person"])?></div><?php
 }?>
 </div>
