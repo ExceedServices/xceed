@@ -37,11 +37,8 @@ $(document).ready(function()
     {
         if($(event.target).is("#contacts-add"))
         {
-            $("#contacts-search-results").slideUp();
             $("#contacts-add-form").load("ajax/contacts-add-form.php");
             $("#contacts-add-form").sildeDown();
-            $("#contacts-search").slideUp();
-            $("#contacts-add").slideUp();
             event.preventDefault()
         }
     });

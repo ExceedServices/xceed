@@ -113,7 +113,8 @@ td
 
 .contact-search-result
 {
-    padding: 2px;
+    margin: 5px;
+    padding: 5px;
     border: 1px #888888 solid;
     background-color:white;
     border-radius: 5px;
