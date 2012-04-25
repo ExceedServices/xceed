@@ -17,10 +17,15 @@ $(document).ready(function()
     
     $("body").click(function(event)
     {
-         if($(event.target).is(".contact-search-result"))
+         if($(event.target).is(".contact-search-result > *") || $(event.target).is(".contact-search-result"))
          {
              $("#contacts-search-results").slideUp();
-             $("#contacts-search-detail").load("ajax/contact-card.php?id=" + $(event.target).attr("data-contact-id"));
+             var id;
+             if ($(event.target).is(".contact-seach-result"))
+                id = $(event.target).attr("data-contact-id");
+             else
+                id = $(event.target).parent(".contact-search-result").attr("data-contact-id");
+             $("#contacts-search-detail").load("ajax/contact-card.php?id=" + id);
              $("#contacts-search-detail").slideDown();
          }
     });
