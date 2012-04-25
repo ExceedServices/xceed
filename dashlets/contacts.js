@@ -35,6 +35,7 @@ $(document).ready(function()
         if($(event.target).is("#contacts-search"))
         {
             $("#contacts-search-detail").slideUp();
+            $("#contacts-search").val("");
         }
     });
     

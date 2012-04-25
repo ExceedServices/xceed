@@ -5,7 +5,6 @@ require_once("connect.php");
 if(!isset($_SESSION))
     session_start();
 
-//If not authenticated after all that, bail! Sanity Check
 if (!isset($_SESSION['id']))
     header('location: /');
 ?><!doctype html>
@@ -37,9 +36,9 @@ if (!isset($_SESSION['id']))
             <br class="floatreset"/>
             <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
             <div data-loader="contacts" class = "widget">Getting Contacts...</div>
-            <div data-loader="users" data-role = "dev" class="widget">Retrieving users...</div>
+            <div data-loader="users" data-role="dev" class="widget">Retrieving users...</div>
             <div data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</div>
-            <div data-loader="updates" data-role="admin" class="widget">Checking for updates...</div>
+            <div data-loader="updates" data-role="dev" class="widget">Checking for updates...</div>
         </div>
     </body>
 </html>

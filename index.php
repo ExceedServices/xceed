@@ -20,7 +20,8 @@ if(!isset($_SESSION['id']))
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['roles'] = $user['roles'];
+            $_SESSION['roles'] = $user['Roles'];
+            $_SESSION['phone'] = $user['phone'];
         }
     }
 }

@@ -14,4 +14,9 @@ require_once("roles.php");
        <p>Would you like to instantly install these updates? <input type="submit" value="Do Upgrade" onClick = "$('#updates-content').load('ajax/do-updates.php');" /></p>
     <?php }
 ?>
+    <h3>Development Log</h3>
+    <form method="POST" action="autocommit.php">
+        <input type="text" name="message" placeholder="Commit Message">
+        <input type="submit" value="Commit all changes." >
+    </form>
 </div>
