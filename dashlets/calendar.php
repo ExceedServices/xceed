@@ -40,7 +40,7 @@ $currMo = date("F", $date);
                     }
                     echo("m=$monB&y=$yearB&f=$isVisible");
         ?>')"/>
-    <div style = "display:inline;"><?php echo($currMo." ".$year) ?></div>
+    <div class="currentMonthDiv"><?php echo($currMo." ".$year) ?></div>
     <input id = "forMonth" type = "submit" value = ">" style = "display:inline;"
         onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
             if($moNum+1 == 13)
@@ -72,16 +72,17 @@ while($item = mysql_fetch_array($result))
     $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
 }
 ?>
+
+<div class="header-row">
+    <div class="day-header">Sun</div>
+    <div class="day-header">Mon</div>
+    <div class="day-header">Tue</div>
+    <div class="day-header">Wed</div>
+    <div class="day-header">Thu</div>
+    <div class="day-header">Fri</div>
+    <div class="day-header">Sat</div>
+</div>
 <div class="calTable">
-    <div class="header-row">
-        <div class="day-header">Sun</div>
-        <div class="day-header">Mon</div>
-        <div class="day-header">Tue</div>
-        <div class="day-header">Wed</div>
-        <div class="day-header">Thu</div>
-        <div class="day-header">Fri</div>
-        <div class="day-header">Sat</div>
-    </div>
 <?php
 for($i=0;$i<5;$i++)
 {?>

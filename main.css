@@ -113,6 +113,7 @@ td
 {
     clear:both;
     height:20px;
+    margin-top:15px;
 }
 
 .day-header
@@ -120,7 +121,7 @@ td
     float:left;
     width:14.028%;
     height:100%;
-    border:1px black solid;
+    /*border:1px black solid;*/
     text-align:center;
 }
 
@@ -146,12 +147,12 @@ td
 
 .appointments div:nth-child(odd)
 {
-    background-color:blue;
+    background-color:#BFE0E2;
 }
 
 .appointments div:nth-child(even)
 {
-    background-color:yellow;
+    background-color:#8FE0E2;
 }
 
 .contact-search-result
@@ -179,5 +180,12 @@ td
 
 .contact-name
 {
+    font-weight:bold;
+}
+
+.currentMonthDiv
+{
+    display:inline;
+    font-size:large;
     font-weight:bold;
 }

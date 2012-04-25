@@ -1,14 +1,21 @@
 $(document).ready(function()
 {
+    $("#calander-details-overlay").slideUp();
     $('body').click(function(event) 
     {
         if ($(event.target).is('.cal-item')) 
         {
-            $("#calander-details-overlay").load("ajax/calendar-details.php?job="+$(event.target).attr('id'));
-            $("#calander-details-overlay").css('position', 'absolute');
-            $("#calander-details-overlay").css('left', event.pageX);
-            $("#calander-details-overlay").css('top', event.pageY);
-            $("#calander-details-overlay").addClass('cal-popup');
+            $("#calander-details-overlay").load("ajax/calendar-details.php?job="+$(event.target).attr('id'),
+function(){
+    $("#calander-details-overlay").css('position', 'absolute');
+    if(event.pageX >= (document.width -250))
+        $("#calander-details-overlay").css('left', event.pageX-$("#calander-details-overlay").width());
+    else
+        $("#calander-details-overlay").css('left', event.pageX);
+    $("#calander-details-overlay").css('top', event.pageY);
+    $("#calander-details-overlay").addClass('cal-popup');
+    $("#calander-details-overlay").slideDown();
+});
         }
     });
 });
