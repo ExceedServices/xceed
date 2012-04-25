@@ -101,6 +101,7 @@ td
 .dayNumbers
 {
    text-align:left;
+   margin:3px;
 }
 
 .newCalcBtn
@@ -113,15 +114,15 @@ td
 {
     clear:both;
     height:20px;
+    width:auto;
     margin-top:15px;
 }
 
 .day-header
 {
     float:left;
-    width:14.028%;
+    width:14%;
     height:100%;
-    /*border:1px black solid;*/
     text-align:center;
 }
 
@@ -129,12 +130,22 @@ td
 {
     clear:both;
     height:100px;
+    width:auto;
 }
 
 .day-value
 {
     float:left;
-    width:14.028%;
+    width:14%;
+    height:100%;
+    border:1px black solid;
+}
+
+.saturday-value
+{
+    float:left;
+    width:14%;
+    background:purple;
     height:100%;
     border:1px black solid;
 }
@@ -188,4 +199,11 @@ td
     display:inline;
     font-size:large;
     font-weight:bold;
+}
+
+#contacts-search
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size:large;
 }

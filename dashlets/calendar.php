@@ -88,14 +88,26 @@ for($i=0;$i<5;$i++)
 {?>
     <div class="date-row">
     <?php for($j=0; $j<7;$j++)
-    {?>
-        <div class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
+    {
+        if($j<6)
+        {?>
+            <div class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
                   {
                       $dom++;
                       echo('<div class = "dayNumbers">'.$dom."</div>");
                       echo('<div class = "appointments">'.$calItems[$dom].'</div>');
                   }?></div>
-    <?php } ?>
+   <?php }
+         else
+         {?>
+                  <div class="saturday-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
+                  {
+                      $dom++;
+                      echo('<div class = "dayNumbers">'.$dom."</div>");
+                      echo('<div class = "appointments">'.$calItems[$dom].'</div>');
+                  }?></div>
+    <?php }
+    } ?>
     </div>
 <?php } ?>
 </div>
