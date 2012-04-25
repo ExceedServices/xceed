@@ -1,11 +1,5 @@
 <?php
 
-    if(!isset($_SESSION))
-        session_start();
-
-    if (!isset($_SESSION['id']))
-        header('location: /');
-
     header("content-type: text/xml");
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 ?>
