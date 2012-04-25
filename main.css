@@ -171,6 +171,8 @@ td
     border-radius: 5px;
     border: 1px #888888 solid;
     
+    max-width: 50%;
+    
     padding: 5px;
     margin: 5px;
     

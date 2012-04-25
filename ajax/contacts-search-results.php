@@ -27,7 +27,7 @@ while($item = mysql_fetch_array($result))
     echo(
 <<<DIV
 
-   <div class="contact-search-result" data-contact-id='{$id}'><div class="contact-name">{$name}</div> <span class="contact-person">{$person}</span> - <span class"contact-phone">{$phone}</span></div>
+   <div class="form contact-search-result" data-contact-id='{$id}'><div class="contact-name">{$name}</div> <span class="contact-person">{$person}</span> - <span class"contact-phone">{$phone}</span></div>
 
 DIV
 );}
