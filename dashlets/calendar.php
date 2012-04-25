@@ -26,7 +26,7 @@ $currMo = date("F", $date);
 <h3>Calendar</h3>
 <div id="calander-details-overlay"></div>
 <div style = "text-align:center; margin:5;">
-    <input id = "backMonth" type = "submit" value = "<" style = "display:inline;"
+    <input id = "backMonth" type = "submit" value = "<" style = "display:inline; margin-bottom:20px;"
         onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
                     if($moNum-1 == 0)
                     {
@@ -41,7 +41,7 @@ $currMo = date("F", $date);
                     echo("m=$monB&y=$yearB&f=$isVisible");
         ?>')"/>
     <div class="currentMonthDiv"><?php echo($currMo." ".$year) ?></div>
-    <input id = "forMonth" type = "submit" value = ">" style = "display:inline;"
+    <input id = "forMonth" type = "submit" value = ">" style = "display:inline; margin-bottom:20px;"
         onClick = "$('#calendardashlet').load('loader.php?dashlet=calendar&<?php
             if($moNum+1 == 13)
             {
@@ -86,17 +86,30 @@ while($item = mysql_fetch_array($result))
 <?php
 for($i=0;$i<5;$i++)
 {?>
-    <div class="date-row">
+<div style="height:100px;">
+        <table cellspacing=0 class="date-row"><tr>
     <?php for($j=0; $j<7;$j++)
-    {?>
-        <div class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
+    {
+        if($j<6)
+        {?>
+            <td class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
                   {
                       $dom++;
                       echo('<div class = "dayNumbers">'.$dom."</div>");
                       echo('<div class = "appointments">'.$calItems[$dom].'</div>');
-                  }?></div>
-    <?php } ?>
-    </div>
+                  }?></td>
+   <?php }
+         else
+         {?>
+                  <td class="saturday-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
+                  {
+                      $dom++;
+                      echo('<div class = "dayNumbers">'.$dom."</div>");
+                      echo('<div class = "appointments">'.$calItems[$dom].'</div>');
+                  }?></td>
+    <?php }
+    } ?>
+    </tr></table></div>
 <?php } ?>
 </div>
 <div class = "newCalcBtn">

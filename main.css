@@ -31,6 +31,7 @@ select
 td
 {
    vertical-align:top;
+   border:1px #888888 solid;
 }
 
 #logo
@@ -71,7 +72,7 @@ td
     max-width:960px;
     min-height:250px;
     margin:auto;
-    border:1px black solid;
+    border:1px #888888 solid;
 }
 
 .cal-popup
@@ -101,6 +102,8 @@ td
 .dayNumbers
 {
    text-align:left;
+   margin:3px;
+   height:14px;
 }
 
 .newCalcBtn
@@ -113,36 +116,42 @@ td
 {
     clear:both;
     height:20px;
-    margin-top:15px;
+    max-width:960px;
+    width:100%;
+    margin:auto;
+    outline:1px #888888 solid;
 }
 
 .day-header
 {
     float:left;
-    width:14.028%;
+    width:14%;
     height:100%;
-    /*border:1px black solid;*/
     text-align:center;
 }
 
 .date-row
 {
     clear:both;
-    height:100px;
+    width:100%;
+    table-layout:fixed;
+    border:1px #888888 solid;
 }
 
 .day-value
 {
-    float:left;
-    width:14.028%;
-    height:100%;
-    border:1px black solid;
+    height:100px;
+}
+
+.saturday-value
+{
+    height:100px;
 }
 
 .appointments
 {
+    height:76px;
     overflow:auto;
-    height:80%;
 }
 
 .appointments div:nth-child(odd)
@@ -179,4 +188,12 @@ td
     display:inline;
     font-size:large;
     font-weight:bold;
+    margin-bottom:20px;
+}
+
+#contacts-search
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size:large;
 }
