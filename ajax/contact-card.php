@@ -7,7 +7,7 @@ else
 {
     die();
 }?>
-<div>
+<div class="form">
 <?php
 require_once('../connect.php');
 $sql="select * from Clients where id = '$id'";
