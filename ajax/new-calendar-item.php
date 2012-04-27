@@ -82,7 +82,7 @@ while($item1 = mysql_fetch_array($result1))
                </td>
                <td>
                    <input id="endTime" class = "datetime" type="datetime" name="end_time"/>
-               <td>
+               </td>
            </tr>
            <tr>
                <td>
