@@ -9,9 +9,7 @@ try
 {
     if (!isset($_REQUEST['data-role']) || hasRole($_REQUEST['data-role']))
         require("dashlets/".$_GET['dashlet'].".php");
-    else
-        echo "You don't have the ". $_REQUEST['data-role'] . " role. Roles: " . $_SESSION['roles'];
-        
+
 }
 catch (Exception $e)
 {
