@@ -202,3 +202,21 @@ select
     font-weight: 500;
     font-size:large;
 }
+
+#messageBox
+{
+    border:1px #888888 solid;
+    height:150px;
+    overflow:auto;
+}
+
+#messageTable tr:nth-child(even)
+{
+    height:15px;
+    background-color:#BFE0E2;
+}
+#messageTable tr:nth-child(odd)
+{
+    height:15px;
+    background-color:#8FE0E2;
+}

@@ -21,6 +21,7 @@ if (!isset($_SESSION['id']))
         <script type="text/javascript" src="js/whiteboard.js" ></script>
         <script type="text/javascript" src="dashlets/calendar.js"></script>
         <script type="text/javascript" src="dashlets/contacts.js"></script>
+        <script type="text/javascript" src="dashlets/messaging.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="js/datetimepicker.js"></script>
 		
@@ -36,6 +37,7 @@ if (!isset($_SESSION['id']))
             <br class="floatreset"/>
             <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
             <div data-loader="contacts" class = "widget">Getting Contacts...</div>
+            <div data-loader="messaging" id="messagedashlet" class = "widget">Getting Messages...</div>
             <div data-loader="users" data-role="dev" class="widget">Retrieving users...</div>
             <div data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</div>
             <div data-loader="updates" data-role="dev" class="widget">Checking for updates...</div>
