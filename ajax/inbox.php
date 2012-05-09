@@ -1,5 +1,5 @@
 <div id='messaging_dashlet'>
-    <table id='messageTable'>
+    <table id='message-table'>
 <?php require_once("connect.php");
 $sql = "
 select uf.name, m.title, m.id, m.unread
@@ -13,11 +13,11 @@ echo(mysql_error());
 while($item = mysql_fetch_array($result))
 {?>
     <tr>
-        <td class='message-item' data-detail-key="<?php echo($item['id']); ?>"><?php echo("From: ".$item['name']); ?></td>
-    <?php if($item['unread'] == 0)
+<?php if($item['unread'] == 0)
         echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-weight:bold; font-size:large;">'.$item['title'].'</td>');
       else
         echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-size:large;">'.$item['title'].'</td>'); ?>
+        <td class='message-item' data-detail-key="<?php echo($item['id']); ?>"><?php echo("--".$item['name']); ?></td>
     </tr>
 <?php }?>
     </table>

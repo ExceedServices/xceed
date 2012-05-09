@@ -205,18 +205,37 @@ select
 
 #messageBox
 {
-    border:1px #888888 solid;
+    border:2px #888888 solid;
+    background-color:white;
+    padding:4px;
     height:150px;
     overflow:auto;
 }
 
-#messageTable tr:nth-child(even)
+#message-table tr:nth-child(even)
 {
     height:15px;
     background-color:#BFE0E2;
 }
-#messageTable tr:nth-child(odd)
+
+#message-table tr:nth-child(odd)
 {
     height:15px;
     background-color:#8FE0E2;
+}
+
+#message-title
+{
+    font-weight:bold;
+    font-size:large;
+    margin-bottom:5px;
+}
+#message-body
+{
+    overflow:auto;
+}
+.inline-widget
+{
+    width:40%;
+    float:left;
 }

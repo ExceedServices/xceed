@@ -4,7 +4,7 @@ if (!isset($_GET['mes']))
 else
     $messageid = $_GET['mes'];
 require_once("../connect.php"); //we're in /ajax
-echo($messageid);
+//echo($messageid);
 $sql = "update Messages set unread = 1 where Messages.id =".$messageid;
 $result1 = mysql_query($sql);
 if (!$result1)
@@ -17,7 +17,7 @@ else
     $message = mysql_fetch_assoc($result2);
     ?>
     <div>
-        <div><?php echo($message['title']); ?></div>
-        <div><?php echo($message['body']); ?></div>
+        <div id='message-title'><?php echo($message['title']); ?></div>
+        <div id='message-body'><?php echo($message['body']); ?></div>
     </div>
 <?php } ?>
