@@ -21,7 +21,7 @@ $(document).ready(function()
          {
              $("#contacts-search-results").slideUp();
              var id;
-             if ($(event.target).is(".contact-seach-result"))
+             if ($(event.target).is(".contact-search-result"))
                 id = $(event.target).attr("data-contact-id");
              else
                 id = $(event.target).parent(".contact-search-result").attr("data-contact-id");
