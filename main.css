@@ -203,6 +203,15 @@ select
     font-size:large;
 }
 
+#message-details
+{
+    background-color:#FDFD81;
+    width:100%;
+    height:100%;
+    display:none;
+    padding: 2px;
+}
+
 #messageBox
 {
     border:2px #888888 solid;

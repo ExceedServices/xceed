@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+    
     $('body').click(function(event) 
     {
         if ($(event.target).is('.message-item')) 

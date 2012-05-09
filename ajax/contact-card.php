@@ -17,7 +17,7 @@ while($item = mysql_fetch_array($result))
 {?>
     <div class="bold"><?php echo($item["name"])?></div>
     <div><?php echo($item["contact_person"])?></div>
-    <div><?php echo($item["contact_phone"])?></div>
+    <div><a href="tel:<?php echo($item['contact_phone']);?>"><?php echo($item["contact_phone"])?></a></div>
     <div><a href="mailto:<?php echo($item['contact_email'])?>"><?php echo($item["contact_email"])?></a></div>
     <div><?php echo($item["contact_address"])?></div>
     <hr>
