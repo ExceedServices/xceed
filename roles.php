@@ -4,7 +4,7 @@ require_once("connect.php");
 
 function hasRole($role)
 {
-    return (strpos($_SESSION['roles'], "|".$role."|"));
+    return (!(strpos($_SESSION['roles'], "|$role|") === false));
 }
     
 function addRole($userID, $role)
