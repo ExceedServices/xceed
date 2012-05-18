@@ -21,11 +21,18 @@ $(document).ready(function()
          {
              $("#contacts-search-results").slideUp();
              var id;
+             var type;
              if ($(event.target).is(".contact-search-result"))
+             {
                 id = $(event.target).attr("data-contact-id");
+                type = $(event.target).atter("data-type");
+             }
              else
+             {
                 id = $(event.target).parent(".contact-search-result").attr("data-contact-id");
-             $("#contacts-search-detail").load("ajax/contact-card.php?id=" + id);
+                type = $(event.target).parent(".contact-search-result").attr("data-type");
+             }
+             $("#contacts-search-detail").load("ajax/contact-card.php?id=" + id + "&type=" + type);
              $("#contacts-search-detail").slideDown();
          }
     });
@@ -34,6 +41,8 @@ $(document).ready(function()
     {
         if($(event.target).is("#contacts-search"))
         {
+            $("#contacts-add-form").slideUp();
+            $("#contacts-search-results").slideUp();
             $("#contacts-search-detail").slideUp();
             $("#contacts-search").val("");
         }
@@ -44,7 +53,7 @@ $(document).ready(function()
         if($(event.target).is("#contacts-add"))
         {
             $("#contacts-add-form").load("ajax/contacts-add-form.php");
-            $("#contacts-add-form").sildeDown();
+            $("#contacts-add-form").slideDown();
             event.preventDefault()
         }
     });
