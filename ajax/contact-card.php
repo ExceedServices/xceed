@@ -40,7 +40,7 @@ else
         <div><a href="tel:{$item['phone']}">{$item['phone']}</a></div>
         <div><a href="mailto:{$item['email']}">{$item['email']}</a></div>
         <hr>
-        <a href="mailto:{$item['email']}">Email</a> - <a href="calls/makecall.php?client={$item['phone']}">Call</a> - SMS - Post to Dashboard
+        <a href="mailto:{$item['email']}">Email</a> - <a href="calls/makecall.php?client={$item['phone']}">Call</a> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
 STUFF;
     }
 }

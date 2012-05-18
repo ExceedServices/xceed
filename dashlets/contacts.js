@@ -54,7 +54,18 @@ $(document).ready(function()
         {
             $("#contacts-add-form").load("ajax/contacts-add-form.php");
             $("#contacts-add-form").slideDown();
-            event.preventDefault()
+            event.preventDefault();
+        }
+    });
+    
+    $('body').click(function(event)
+    {
+        if($(event.target).is(".contacts-post-to-dash"))
+        {
+            $("#new-message").load('ajax/new-message.php?r='+encodeURI($(event.target).attr("data-name")));
+            $("#message-details").slideUp();
+            $("#inbox").slideUp();
+            $("#new-message").slideDown();
         }
     });
 });
