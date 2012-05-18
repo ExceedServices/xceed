@@ -10,7 +10,7 @@
             where m.to_user_id = ut.id
                 and ut.name = '".$_SESSION['name']."'
                 and uf.id = m.from_user_id
-            order by m.timestamp";
+            order by m.timestamp desc";
             $result = mysql_query($sql);
             echo(mysql_error());
             while($item = mysql_fetch_array($result))
