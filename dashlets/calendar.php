@@ -58,8 +58,8 @@ $currMo = date("F", $date);
 </div>
 <?php
 
-$sql = "select title, day, id\n"
-    . "from Jobs\n"
+$sql = "select name, day, id\n"
+    . "from Appointments\n"
     . "where month = $moNum"
     . " and year = $year\n"
     . "order by day";
@@ -69,7 +69,7 @@ $calItems = array();
 $calIds = array();
 while($item = mysql_fetch_array($result))
 {
-    $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["title"] .'</div>'.$calItems[$item["day"]];
+    $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] .'</div>'.$calItems[$item["day"]];
 }
 ?>
 
