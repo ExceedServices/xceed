@@ -21,6 +21,7 @@ $(document).ready(function()
             $("#message-details").slideUp();
             $("#new-message").slideUp();
             $("#inbox").slideDown();
+            $("#messagedashlet").load('loader.php?dashlet=messaging');
         }
     });
 });
