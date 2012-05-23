@@ -18,9 +18,9 @@
                 <tr>
                    <td class='message-item' data-detail-key="<?php echo($item['id']); ?>"><?php echo("From: ".$item['name']); ?></td>
                 <?php if($item['unread'] == 0)
-                    echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-weight:bold; font-size:large;">'.$item['title'].'</td>');
+                    echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-weight:bold; font-size:large;">'.htmlspecialchars($item['title']).'</td>');
                 else
-                    echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-size:large;">'.$item['title'].'</td>'); ?>
+                    echo('<td class="message-item" data-detail-key="'.$item['id'].'" style="font-size:large;">'.htmlspecialchars($item['title']).'</td>'); ?>
                 </tr>
             <?php }?>
             </table>
