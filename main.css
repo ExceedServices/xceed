@@ -50,7 +50,7 @@ select
 #userbar
 {
     float:right;
-    background-color: rgb(155, 187, 234);
+    background-color: #1F75FF;
     padding: 5px;
     border-radius: 0 0 5px 5px;   
 }
@@ -83,7 +83,7 @@ select
 .cal-popup
 {
     padding: 5px;
-    background-color: #E6EEF9;
+    background-color: #1F75FF;
     border-radius: 5px;
 }
 
@@ -93,7 +93,7 @@ select
     min-width: 50%;
     height: 50%; 
     padding: 20px;
-    background-color: rgb(155, 187, 234);
+    background-color: #1F75FF;
     border-radius: 15px;
     text-align:center;
 }
@@ -174,7 +174,7 @@ select
     border-radius: 5px;
     border: 1px #888888 solid;
     
-    max-width: 50%;
+    max-width: 50em;
     
     padding: 5px;
     margin: 5px;
