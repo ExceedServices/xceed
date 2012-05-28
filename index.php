@@ -27,8 +27,10 @@ if(!isset($_SESSION['id']))
 }
 
 if (isset($_SESSION['id']))
-    header("location: dashboard.php");
-
+{
+    include("dashboard.php");
+    die();
+}
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -40,12 +42,13 @@ if (isset($_SESSION['id']))
     <body>
         <div class="bodywrap">
             <div id="logo"><img src="logo.jpg" /></div>
-            <br class="floatreset"/>
-            <div class="login-form-container">
+
+            <div id="userbar">
                 <form method="post">
                     <input name="email" type="email" required="required" placeholder="username" /> <input name="password" type="password" required="required" placeholder="password"/> <input type="submit" value="login" />
                 </form>
 	        </div>
+            <br class="floatreset"/>
         </div>
     </body>
 </html>

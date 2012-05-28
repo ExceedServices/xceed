@@ -89,9 +89,7 @@ select
 
 .login-form-container
 {
-    margin:auto;
-    min-width: 50%;
-    height: 50%; 
+    margin-top:12.5%;
     padding: 20px;
     background-color: #1F75FF;
     border-radius: 15px;
