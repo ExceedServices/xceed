@@ -58,4 +58,23 @@ $(document).ready(function()
             $('#calendar-35-boxes-view').slideDown();});
         }
     });
+    
+    $('body').click(function(event)
+    {
+        if($(event.target).is(".calendar-agenda-item > *") || $(event.target).is(".calendar-agenda-item"))
+        {
+            $("#calendar-agenda-view").slideUp();
+            $("#calendar-35-boxes-view").slideUp();
+
+            var id;
+            if ($(event.target).is(".calendar-agenda-item"))
+                id = $(event.target).attr("data-appointment-id");
+            else
+                id = $(event.target).parent(".calendar-agenda-item").attr("data-appointment-id");
+                
+            $("#calendar-agenda-view").load('ajax/calendar-appointment-details.php?id='+id, function(){
+                $("#calendar-agenda-view").slideDown();
+            });
+        }
+    });
 });

@@ -23,11 +23,11 @@ else
         {
             $dateLabel = date_format($qDateTime, "F jS");
             echo("<div class=calendar-agenda-day><h4>{$dateLabel}</h4>");
-            echo($q);
+//            echo($q);
         
             while($item = mysql_fetch_assoc($result))
             {?>
-                <div class="calendar-agenda-item" data-appointment-id="<?php echo($item['id']); ?>" style="background-color: <?php echo($item['color']); ?>"><h5><?php echo($item['name']);?></h5></div>
+                <div class="calendar-agenda-item" data-appointment-id="<?php echo($item['id']); ?>" style="color: <?php echo($item['color']); ?>"><h3><?php echo($item['name']);?></h3></div>
             <?php }
         
             $queryDay++;

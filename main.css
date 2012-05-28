@@ -87,15 +87,6 @@ select
     border-radius: 5px;
 }
 
-.login-form-container
-{
-    margin-top:12.5%;
-    padding: 20px;
-    background-color: #1F75FF;
-    border-radius: 15px;
-    text-align:center;
-}
-
 .centered
 {
     margin: auto;
@@ -193,6 +184,11 @@ select
     font-weight:bold;
     margin-bottom:20px;
 }
+
+.calendar-agenda-item
+{
+    margin-left: 4em;
+]
 
 #contacts-search
 {

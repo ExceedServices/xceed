@@ -1,7 +1,5 @@
 <?php
 
-require_once("connect.php");
-
 if(!isset($_SESSION))
     session_start();
 
