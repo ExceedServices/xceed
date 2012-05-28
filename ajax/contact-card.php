@@ -8,7 +8,7 @@ else
 {
     die();
 }?>
-<div class="form">
+<div class="form" data-contact-id="<?php echo $_GET['id']; ?>">
 <?php
 require_once('../connect.php');
 if ($type== "Clients")
@@ -24,7 +24,7 @@ if ($type== "Clients")
         <div><a href="mailto:<?php echo($item['contact_email'])?>"><?php echo($item["contact_email"])?></a></div>
         <div><?php echo($item["contact_address"])?></div>
         <hr>
-        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <a href="calls/makecall.php?client=<?php echo $item['contact_phone']; ?>">Call</a> - SMS - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a>
+        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a>
     <?php } 
 
 }
@@ -36,15 +36,15 @@ else
     {
     echo
 <<<STUFF
-        <div class ="bold">{$item['name']}</div>
+        <div class="bold">{$item['name']}</div>
         <div><a href="tel:{$item['phone']}">{$item['phone']}</a></div>
         <div><a href="mailto:{$item['email']}">{$item['email']}</a></div>
         <hr>
-        <a href="mailto:{$item['email']}">Email</a> - <a href="calls/makecall.php?client={$item['phone']}">Call</a> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
+        <a href="mailto:{$item['email']}">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client={$item['phone']}">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client={$item['phone']}">SMS</button> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
 STUFF;
     }
 }
 ?>
-
+<div id="contact-call-status"></div>
 </div>
 <?php echo(mysql_error());?>

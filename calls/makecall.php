@@ -3,6 +3,9 @@ require "Services/Twilio.php";
 
 if(!isset($_SESSION))
     session_start();
+    
+if(!isset($_SESSION['id']))
+    die('Not Logged In');
 
 if (!isset($_SESSION['phone']))
     die('Please add your phone # to your fancy Exceed dashboard account to enable this feature.');
@@ -32,7 +35,6 @@ if (!isset($_REQUEST['client'])) {
 /* make Twilio REST request to initiate outgoing call */
 $call = $client->account->calls->create($from, $to, $url . 'callback.php?number=' . $_REQUEST['client']);
 
-/* redirect back to the main page with CallSid */
-$msg = urlencode("And the phone rings...");
+$msg = "<p>Call in Progress...</p>";
 echo($msg);
 ?>

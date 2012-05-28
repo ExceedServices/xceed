@@ -1,12 +1,17 @@
 <?php
 if(isset($_GET['q']))
-{
     $searchstring = $_GET['q'];
-}
 else
-{
     die();
-}?>
+
+
+if($_GET['q'] == "mufasa" || $_GET['q'] == "simba")
+{?>
+    <iframe width="640" height="360" src="http://www.youtube.com/embed/vX07j9SDFcc" frameborder="0" allowfullscreen></iframe>
+    <?php
+}
+
+?>
 <?php
 require_once("../connect.php");
 $sql="

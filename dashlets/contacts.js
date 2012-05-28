@@ -35,10 +35,6 @@ $(document).ready(function()
              $("#contacts-search-detail").load("ajax/contact-card.php?id=" + id + "&type=" + type);
              $("#contacts-search-detail").slideDown();
          }
-    });
-
-    $('body').click(function(event)
-    {
         if($(event.target).is("#contacts-search"))
         {
             $("#contacts-add-form").slideUp();
@@ -46,20 +42,12 @@ $(document).ready(function()
             $("#contacts-search-detail").slideUp();
             $("#contacts-search").val("");
         }
-    });
-    
-    $('body').click(function(event)
-    {
         if($(event.target).is("#contacts-add"))
         {
             $("#contacts-add-form").load("ajax/contacts-add-form.php");
             $("#contacts-add-form").slideDown();
             event.preventDefault();
         }
-    });
-    
-    $('body').click(function(event)
-    {
         if($(event.target).is(".contacts-post-to-dash"))
         {
             $("#new-message").load('ajax/new-message.php?r='+encodeURI($(event.target).attr("data-name")));
@@ -67,5 +55,32 @@ $(document).ready(function()
             $("#inbox").slideUp();
             $("#new-message").slideDown();
         }
-    });
+        if($(event.target).is("#contacts-call-button"))
+        {
+            $("#contact-call-status").slideUp();
+            
+            $("#contact-call-status").load(($(event.target)).attr("data-command"), function()
+            {   
+                $("#contact-call-status").slideDown();
+                $("#contact-call-status").slideUp(30000);
+            });
+        }
+        if($(event.target).is("#contacts-sms-button"))
+        {
+            $("#contact-call-status").load(($(event.target)).attr("data-command"), function()
+            {   
+                $("#contact-call-status").slideDown();
+            });        
+        }
+        if($(event.target).is("#sms-submit"))
+        {
+            $("#contact-call-status").slideUp();
+            $("#contact-call-status").load("calls/makesms.php?msg="+encodeURIComponent($("#sms-body").val())+"&client="+encodeURIComponent($("#sms-to").val()),function()
+            {
+                $("#contact-call-status").slideDown();
+                $("#contact-call-status").slideUp(10000);
+            });
+        }
+    });    
+    
 });
