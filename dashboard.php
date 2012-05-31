@@ -28,12 +28,12 @@ if (!isset($_SESSION['id']))
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><img src="logo.jpg" /></div>
+            <div id="logo"><img src="logo.jpg" alt="logo" /></div>
             <div id="userbar">
 		        <?php echo($_SESSION['name']);?> <a href="killsession.php">X</a>
 	        </div>
             <br class="floatreset"/>
-            <div data-loader="nav" class = "navbar">Navigating to navigation...</div>
+            <div data-loader="nav" class="navbar">Navigating to navigation...</div>
             <div data-loader="contacts" class="inline-widget">Getting Contacts...</div>
             <div data-loader="messaging" class="inline-widget">Getting Messages...</div>
             <div class="floatreset"></div>

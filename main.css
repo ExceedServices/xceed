@@ -188,7 +188,7 @@ select
 .calendar-agenda-item
 {
     margin-left: 4em;
-]
+}
 
 #contacts-search
 {
@@ -237,6 +237,7 @@ select
 {
     overflow:auto;
 }
+
 .inline-widget
 {
     width:40%;
