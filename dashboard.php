@@ -11,7 +11,7 @@ if (!isset($_SESSION['id']))
         <!-- our original -->
         <link rel="stylesheet" href="main.css" type="text/css"></link>
         <!-- google fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Asap|Ubuntu:500' rel='stylesheet' type='text/css'> 
+        <link href='https://fonts.googleapis.com/css?family=Asap|Ubuntu:500' rel='stylesheet' type='text/css'> 
         <!-- for datepicker -->
         <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.17.custom.css" type="text/css"></link>
         
