@@ -1,4 +1,6 @@
 <?php
+require_once('../connect.php');
+
 if(isset($_GET['id'])&& isset($_GET['type']))
 {
     $id = $_GET['id'];
@@ -10,7 +12,6 @@ else
 }?>
 <div class="form" data-contact-id="<?php echo $_GET['id']; ?>">
 <?php
-require_once('../connect.php');
 if ($type== "Clients")
 {
     $sql="select * from Clients where id = '$id'";

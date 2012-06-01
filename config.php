@@ -3,5 +3,5 @@ Settings::$dbHost = "db.exceedcrew.com";
 Settings::$dbUser = "xceeddev";
 Settings::$dbPass = "xceeddev";
 Settings::$dbBase = "xceed";
-Settings::$enforceSSL = true;
+Settings::$enforceSSL = false;
 ?>

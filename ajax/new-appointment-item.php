@@ -1,5 +1,5 @@
 <?php require_once("../connect.php");?>
-<div class="calForm">
+<div class="form">
     <form method="post" action="insertCalItem.php">
         <table class="formTable">
             <tr>

@@ -1,24 +1,5 @@
 $(document).ready(function()
 {
-    $("#calander-details-overlay").hide();
-    $('body').click(function(event) 
-    {
-        if ($(event.target).is('.cal-item')) 
-        {
-            $("#calander-details-overlay").hide();
-            $("#calander-details-overlay").load("ajax/calendar-details.php?job="+$(event.target).attr('id'),
-            function(){
-                $("#calander-details-overlay").css('position', 'absolute');
-                if(event.pageX >= (document.width -250))
-                    $("#calander-details-overlay").css('left', event.pageX-$("#calander-details-overlay").width());
-                else
-                    $("#calander-details-overlay").css('left', event.pageX);
-                $("#calander-details-overlay").css('top', event.pageY);
-                $("#calander-details-overlay").addClass('cal-popup');
-                $("#calander-details-overlay").show();
-            });                     
-        }
-    });
 
     $('body').click(function(event)
     {
@@ -61,7 +42,7 @@ $(document).ready(function()
     
     $('body').click(function(event)
     {
-        if($(event.target).is(".calendar-agenda-item > *") || $(event.target).is(".calendar-agenda-item"))
+        if($(event.target).is(".calendar-agenda-item > *") || $(event.target).is(".calendar-agenda-item") || $(event.target).is(".cal-item"))
         {
             $("#calendar-agenda-view").slideUp();
             $("#calendar-35-boxes-view").slideUp();
@@ -69,8 +50,10 @@ $(document).ready(function()
             var id;
             if ($(event.target).is(".calendar-agenda-item"))
                 id = $(event.target).attr("data-appointment-id");
-            else
+            else if ($(event.target).is(".calendar-agenda-item > *"))
                 id = $(event.target).parent(".calendar-agenda-item").attr("data-appointment-id");
+            else if ($(event.target).is(".cal-item"))
+                id = $(event.target).attr("data-detail-key");
                 
             $("#calendar-agenda-view").load('ajax/calendar-appointment-details.php?id='+id, function(){
                 $("#calendar-agenda-view").slideDown();
