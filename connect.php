@@ -24,7 +24,7 @@ if ($_SERVER['HTTPS'] != "on" && Settings::$enforceSSL)
 {
     $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     header("Location: $url");
-    die("<!-- SSL is required -->");
+    exit;
 }  
 
 if (!isset($_SESSION))

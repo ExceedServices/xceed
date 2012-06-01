@@ -1,15 +1,12 @@
 <?php
-
-if (!isset($_SESSION))
-    session_start();
+        require_once("connect.php");
 
 if(!isset($_SESSION['id']))
 {
 
     if (isset($_REQUEST['email']) and isset($_REQUEST['password']))
     {
-        require_once("connect.php");
-        //echo(mysql_error());
+
         $login = $_REQUEST['email'];
         $q = "SELECT * FROM `Users` WHERE `email` = '$login'";
         $result = mysql_query($q);
