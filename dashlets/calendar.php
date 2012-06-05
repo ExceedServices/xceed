@@ -90,7 +90,7 @@ $currMo = date("F", $date);
     <?php
     for($i=0;$i<5;$i++)
     {?>
-    <div style="height:100px;">
+    <div>
             <table cellspacing=0 class="date-row"><tr>
         <?php for($j=0; $j<7;$j++)
         {
