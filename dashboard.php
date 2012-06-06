@@ -37,7 +37,7 @@ if (!isset($_SESSION['id']))
             <div data-loader="contacts" class="inline-widget">Getting Contacts...</div>
             <div data-loader="messaging" class="inline-widget">Getting Messages...</div>
             <div class="floatreset"></div>
-            <div data-loader="users" data-role="dev" class="widget">Retrieving users...</div>
+            <div data-loader="users" data-role="admin" class="widget">Retrieving users...</div>
             <div data-loader="jobs" data-role="admin" class="widget">Retrieving jobs...</div>
             <div data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</div>
             <div data-loader="updates" data-role="dev" class="widget">Checking for updates...</div>
