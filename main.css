@@ -243,3 +243,9 @@ select
     width:40%;
     float:left;
 }
+
+.editable
+{
+    background-color: transparent;
+    border: 0;
+}
