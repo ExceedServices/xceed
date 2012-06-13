@@ -1,5 +1,6 @@
 <?php
 require_once('../connect.php');
+require_once('../roles.php');
 
 if(isset($_GET['id'])&& isset($_GET['type']))
 {
@@ -18,12 +19,27 @@ if ($type== "Clients")
     $result = mysql_query($sql);
 
     while($item = mysql_fetch_assoc($result))
-    {?>
-        <div class="bold"><?php echo($item["name"])?></div>
-        <div><?php echo($item["contact_person"])?></div>
-        <div><a href="tel:<?php echo($item['contact_phone']);?>"><?php echo($item["contact_phone"])?></a></div>
-        <div><a href="mailto:<?php echo($item['contact_email'])?>"><?php echo($item["contact_email"])?></a></div>
-        <div><?php echo($item["contact_address"])?></div>
+    {
+        if(hasRole("admin"))
+            echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="name" class="editable bold" value="'.$item['name'].'"/>');
+        else
+            echo('<div class="bold">'.$item["name"].'</div>');
+        if(hasRole("admin"))
+            echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="contact_person" class="editable bold" value="'.$item['contact_person'].'"/>');
+        else
+            echo('<div>'.$item["contact_person"].'</div>');
+        if(hasRole("admin"))
+            echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="contact_phone" class="editable bold" value="'.$item['contact_phone'].'"/>');
+        else
+            echo('<div>'.$item["contact_phone"].'</div>');
+        if(hasRole("admin"))
+            echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="contact_email" class="editable bold" value="'.$item['contact_email'].'"/>');
+        else
+            echo('<div>'.$item["contact_email"].'</div>');
+        if(hasRole("admin"))
+            echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="contact_address" class="editable bold" value="'.$item['contact_address'].'"/>');
+        else
+            echo('<div>'.$item["contact_address"].'</div>');?>
         <hr>
         <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a>
     <?php } 

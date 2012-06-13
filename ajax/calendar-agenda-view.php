@@ -17,7 +17,7 @@ else
     while($startDay + 7 > $queryDay)
     {
         $qDateTime = date_create_from_format("z",$queryDay);
-        $q = "Select * from Appointments where day = '".date_format($qDateTime,"d")."' and month = '".date_format($qDateTime,"m")."' and year = '".date_format($qDateTime,"Y")."'";
+        $q = "Select * from Appointments where day = '".date_format($qDateTime,"d")."' and month = '".date_format($qDateTime,"m")."' and year = '".date_format($qDateTime,"Y")."' and (privacy = 0 or privacy = 1 or creator_id = ".$_SESSION['id'].")";
         $result = mysql_query($q);
         if ($result)
         {
