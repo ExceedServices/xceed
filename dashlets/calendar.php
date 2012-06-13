@@ -16,6 +16,7 @@ else
     $year = date('Y',time());
 }
 require_once("connect.php");
+require_once("roles.php");
 $date = mktime(0,0,0,$moNum,1,$year);
 $dom = 0;
 $dow = date("w", $date);
@@ -61,11 +62,19 @@ $currMo = date("F", $date);
             ?>')">></button>
     </div>
     <?php
-
-    $sql = "select name, day, id\n"
+if(hasrole("ad"))
+    $sql = "select name, day, id, color\n"
         . "from Appointments\n"
         . "where month = $moNum"
         . " and year = $year\n"
+        . " and (privacy = 0 or privacy = 1 or creator_id = ".$_SESSION['id'].")"
+        . "order by day";
+else
+    $sql = "select name, day, id, color\n"
+        . "from Appointments\n"
+        . "where month = $moNum"
+        . " and year = $year\n"
+        . " and (privacy = 0 or creator_id = ".$_SESSION['id'].")"
         . "order by day";
     $result = mysql_query($sql);
     echo(mysql_error());
@@ -73,7 +82,7 @@ $currMo = date("F", $date);
     $calIds = array();
     while($item = mysql_fetch_array($result))
     {
-        $calItems[$item["day"]] = '<div class="cal-item" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] .'</div>'.$calItems[$item["day"]];
+        $calItems[$item["day"]] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] .'</div>'.$calItems[$item["day"]];
     }
     ?>
 

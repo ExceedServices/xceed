@@ -60,6 +60,26 @@ while($item = mysql_fetch_array($result))
                    <input id="endTime" class = "datetime" type="datetime" name="end_time"/>
                </td>
            </tr>
+           <tr>
+               <td>
+                   <label for="color1">Color</label>
+               </td>
+               <td>
+                   <input id="color1" type="text" name="color1" value="#333399" />
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <label for="privacy">Privacy</label>
+               </td>
+               <td>
+                   <select name="privacy">
+                       <option value="0">Public</option>
+                       <option value="1">Directors</option>
+                       <option value="2">Private</option>
+                   </select>
+               </td>
+          </tr>
        </table>
        <input type="submit" value="Submit"/>
        <div id=sqlString><?php echo($InsertSQL);?></div>
@@ -68,5 +88,6 @@ while($item = mysql_fetch_array($result))
 </div>
 <script type="text/javascript">
 	$('.datetime').datetimepicker();
+    $('#color1').colorPicker();
 </script>
 <?php ?>

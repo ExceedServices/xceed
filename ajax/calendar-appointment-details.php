@@ -6,6 +6,14 @@ $id = mysql_real_escape_string($_GET['id']);
 $reader = mysql_query("Select * from Appointments where id = '$id'");
 while ($item = mysql_fetch_assoc($reader))
 {
+    if(substr($item['startTime'],0,2)<13)
+        $start = substr($item['startTime'],0,5).'a';
+    else
+        $start = (substr($item['startTime'],0,2)-12).substr($item['startTime'],2,3).'p';
+    if(substr($item['endTime'],0,2)<13)
+        $end = substr($item['endTime'],0,5).'a';
+    else
+        $end = (substr($item['endTime'],0,2)-12).substr($item['endTime'],2,3).'p';
     if ($item['location'] == "" || $item['location'] =="none")
     {
         $mapsHTML ="";
@@ -19,8 +27,8 @@ while ($item = mysql_fetch_assoc($reader))
 <div class="form">
     <table width=100%>
         <tr>
-            <td>    <h2 class="bold">{$item['name']}</h2>
-    <p>Starts {$item['month']}/{$item['day']} at {$item['startTime']} and goes until {$item['endTime']}.</p><p>{$item['notes']}</p></td>
+            <td>    <h2 style="color:{$item['color']};" class="bold">{$item['name']}</h2>
+    <p>Starts {$item['month']}/{$item['day']} at {$start} and goes until {$end}.</p><p>{$item['notes']}</p></td>
             <td><p>{$mapsHTML}</p></td>
         </tr>
     </table>

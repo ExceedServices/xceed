@@ -1,12 +1,12 @@
 $(document).ready(function()
 {
-
     $('body').click(function(event)
     {
         if($(event.target).is('#new-cal-btn'))
         {
             $('#new-calendar-item').load('ajax/new-appointment-item.php');
             $('#new-calendar-item').slideDown();
+            $('#color1').colorPicker();
         }
     });
 
