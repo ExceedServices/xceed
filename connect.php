@@ -2,7 +2,7 @@
 
 class Settings
 {
-    public static $dbHost = "db.xceedcrew.com";
+    public static $dbHost = "db.exceedcrew.com";
     public static $dbUser = "xceeddev";
     public static $dbPass = "xceeddev";
     public static $dbBase = "xceed";
