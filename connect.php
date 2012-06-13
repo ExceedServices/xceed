@@ -9,9 +9,10 @@ class Settings
 
     public static $enforceSSL = false;
 }
-
+$level = error_reporting();
+error_reporting(0);
 include("config.php"); // Overwrite defaults with a local config... we don't care if it is missing.
- 
+ error_reporting($level);
 //echo(Settings::$dbHost);
 //echo(Settings::$dbUser);
 //echo(Settings::$dbPass);
