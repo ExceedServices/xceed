@@ -1,7 +1,7 @@
 <?php
 
 require_once("../connect.php");
-require_once("../roles.php"));
+require_once("../roles.php");
 
 $id = mysql_real_escape_string($_GET['id']);
 $reader = mysql_query("Select * from Appointments where id = '$id'");
