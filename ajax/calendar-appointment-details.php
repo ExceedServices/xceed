@@ -1,6 +1,7 @@
 <?php
 
 require_once("../connect.php");
+require_once("../roles.php"));
 
 $id = mysql_real_escape_string($_GET['id']);
 $reader = mysql_query("Select * from Appointments where id = '$id'");
@@ -15,21 +16,27 @@ while ($item = mysql_fetch_assoc($reader))
     else
         $end = (substr($item['endTime'],0,2)-12).substr($item['endTime'],2,3).'p';
     if ($item['location'] == "" || $item['location'] =="none")
-    {
         $mapsHTML ="";
-    }
     else
-    {
         $mapsHTML = '<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='.$item['location'].'&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q='.$item['location'].'" style="color:#0000FF;text-align:left">View Larger Map</a></small>';
-    }
+
+    if ($item['creator_id'] == $_SESSION['id'] || hasRole("admin"))
+        $name="<input class='editable bold' data-savable data-table='Appointments' data-field='name' value='".$item['name']."'>";
+    else 
+        $name = $item['name'];
+
     echo
 <<<STUFF
 <div class="form">
     <table width=100%>
         <tr>
-            <td>    <h2 style="color:{$item['color']};" class="bold">{$item['name']}</h2>
-    <p>Starts {$item['month']}/{$item['day']} at {$start} and goes until {$end}.</p><p>{$item['notes']}</p></td>
-            <td><p>{$mapsHTML}</p></td>
+            <td>    
+                <h2 style="color:{$item['color']};" class="bold">{$name}</h2>
+                <p>Starts {$item['month']}/{$item['day']} at {$start} and goes until {$end}.</p><p>{$item['notes']}</p>
+            </td>
+            <td>
+                <p>{$mapsHTML}</p>
+            </td>
         </tr>
     </table>
 

@@ -27,7 +27,9 @@ else
         
             while($item = mysql_fetch_assoc($result))
             {?>
-                <div class="calendar-agenda-item" data-appointment-id="<?php echo($item['id']); ?>" style="color: <?php echo($item['color']); ?>"><h3><?php echo($item['name']);?></h3></div>
+                <div class="calendar-agenda-item" data-appointment-id="<?php echo($item['id']); ?>" style="color: <?php echo($item['color']); ?>">
+                    <h3><?php echo($item['name']);?></h3>
+                </div>
             <?php }
         
             $queryDay++;
