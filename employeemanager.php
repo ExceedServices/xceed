@@ -77,10 +77,15 @@ if($_GET['a'] == 1)
     $form=
 <<<DIV
 <form style='width:100%;' method='post'>
+            Name:
     <input name='name' style='display:inline;' type='text' value=''/>
+    Email:
     <input name='email' style='display:inline;' type='text' value=''/>
+    Password:
     <input name='pwd' style='display:inline;' type ='text' value=''/>
+    Roles Code:
     <input name='Roles' style='display:inline;' type='text' value=''/>
+    Phone:
     <input name='phone' style='display:inline;' type='text' value=''/>
     <input name='save' style='display:inline;' type='submit' value='Save'/>
     <input name='cancel' style='display:inline;' type='submit' value='Cancel'/>
