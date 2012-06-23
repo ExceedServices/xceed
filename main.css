@@ -50,7 +50,13 @@ select
     /*display: inline;*/
     float: left;
     margin-top: -40px;
+    border:0;
 }
+
+a img
+{
+    border:0;
+    }
 
 #userbar
 {

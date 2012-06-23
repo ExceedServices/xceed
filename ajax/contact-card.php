@@ -57,7 +57,7 @@ else
         <div><a href="tel:{$item['phone']}">{$item['phone']}</a></div>
         <div><a href="mailto:{$item['email']}">{$item['email']}</a></div>
         <hr>
-        <a href="mailto:{$item['email']}">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client={$item['phone']}">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client={$item['phone']}">SMS</button> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
+        <a href="mailto:{$item['email']}">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client={$item['phone']}"><img src="img/tel.png"/>Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client={$item['phone']}">SMS</button> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
 STUFF;
     }
 }

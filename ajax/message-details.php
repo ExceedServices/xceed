@@ -19,5 +19,6 @@ else
     <div>
         <div id='message-title'><?php echo($message['title']); ?></div>
         <div id='message-body'><?php echo($message['body']); ?></div>
+        <button><img src="img/reply.png"/></button>
     </div>
 <?php } ?>
