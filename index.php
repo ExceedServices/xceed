@@ -40,7 +40,7 @@ echo mysql_error();
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><img src="logo.jpg" /></div>
+            <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" /></a></div>
 
             <div id="userbar">
                 <form method="post">

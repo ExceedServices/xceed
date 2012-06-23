@@ -30,7 +30,7 @@ if (!isset($_SESSION['id']))
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><img src="logo.jpg" alt="logo" /></div>
+            <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" /></a></div>
             <div id="userbar">
 		        <?php echo($_SESSION['name']);?> <a href="killsession.php">X</a>
 	        </div>
