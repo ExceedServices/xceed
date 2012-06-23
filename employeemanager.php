@@ -66,7 +66,7 @@ if(hasRole("admin"))
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><img src="logo.jpg" /></div>
+            <div id="logo"><img alt="Exceed Logo" src="logo.jpg" /></div>
             <div id="userbar">
 		        <?php echo($_SESSION['name']);?> <a href="killsession.php">X</a>
 	        </div>

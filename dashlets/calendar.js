@@ -23,9 +23,11 @@ $(document).ready(function()
         if($(event.target).is('#calendar-show-agenda'))
         {
             $('#calendar-agenda-view').slideUp();
-            $('#calendar-35-boxes-view').slideUp();
+            
             $('#calendar-agenda-view').load('ajax/calendar-agenda-view.php', function(){
-            $('#calendar-agenda-view').slideDown();});
+                $('#calendar-agenda-view').slideDown();
+                $('#calendar-35-boxes-view').slideUp();
+            });
         }
     });
     
@@ -33,10 +35,11 @@ $(document).ready(function()
     {
         if($(event.target).is('#calendar-show-boxes'))
         {
-            $('#calendar-agenda-view').slideUp();
             $('#calendar-35-boxes-view').slideUp();
-            $('#calendar-agenda-view').load('ajax/calendar-month.php', function(){
-            $('#calendar-35-boxes-view').slideDown();});
+            $('#calendar-35-boxes-view').load('ajax/calendar-month.php', function(){
+                $('#calendar-agenda-view').slideUp();
+                $('#calendar-35-boxes-view').slideDown();
+            });
         }
     });
     
@@ -45,7 +48,6 @@ $(document).ready(function()
         if($(event.target).is(".calendar-agenda-item > *") || $(event.target).is(".calendar-agenda-item") || $(event.target).is(".cal-item"))
         {
             $("#calendar-agenda-view").slideUp();
-            $("#calendar-35-boxes-view").slideUp();
 
             var id;
             if ($(event.target).is(".calendar-agenda-item"))
@@ -57,6 +59,7 @@ $(document).ready(function()
                 
             $("#calendar-agenda-view").load('ajax/calendar-appointment-details.php?id='+id, function(){
                 $("#calendar-agenda-view").slideDown();
+                $("#calendar-35-boxes-view").slideUp();
             });
         }
     });
