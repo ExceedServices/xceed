@@ -39,10 +39,15 @@ while ($item = mysql_fetch_assoc($reader))
             </td>
         </tr>
     </table>
+STUFF;
+if(hasRole("admin"))
+{
+?>
     <input data-delete style="display:inline;" id='delete-message' data-id='{$_GET['id']}' data-table='Appointments' type='submit' value='X' data-callback='
         $("#calendardashlet").load("loader.php?dashlet=calendar");
     '/>
+<?php } ?>
 </div>
-STUFF;
+<?php
 }
 ?>
