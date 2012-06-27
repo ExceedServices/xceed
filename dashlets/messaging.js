@@ -1,6 +1,7 @@
 $(document).ready(function()
 {
-    
+    setInterval(function(){$("#messagedashlet").load('loader.php?dashlet=messaging');},15000);
+
     $('body').click(function(event) 
     {
         if ($(event.target).is('.message-item')) 
