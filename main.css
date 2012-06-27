@@ -23,6 +23,13 @@ h1,h2,h3,h4,h5
     font-weight: 500;
 }
 
+p,input,
+{
+        font-family: 'ASAP', sans-serif;
+    font-weight: 400;
+    font-size:medium;
+    }
+
 .title
 {
     font-size: larger;
