@@ -17,7 +17,15 @@ else
     $message = mysql_fetch_assoc($result2);
     ?>
     <div>
-        <div id='message-title'><?php echo($message['title']); ?></div>
+        <div>
+            <div style="display:inline;" id='message-title'><?php echo($message['title']); ?></div>
+            <input data-delete style="display:inline;" id='delete-message' data-id=' <?php echo($message["id"]); ?>' data-table='Messages' type='submit' value='X' data-callback='
+    $("#message-details").slideUp();
+    $("#new-message").slideUp();
+    $("#inbox").slideDown();
+    $("#messagedashlet").load("loader.php?dashlet=messaging");
+'/>
+        </div>
         <div id='message-body'><?php echo($message['body']); ?></div>
         <button><img src="img/reply.png"/></button>
     </div>

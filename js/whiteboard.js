@@ -30,6 +30,17 @@ $(document).ready(function(){
             });
         }
     });
-});
 
+    $('body').click(function(event)
+    {
+        if($(event.target).is('input[data-delete]'))
+        {
+            var payload = new Object();
+            payload.table = $(event.target).attr("data-table");
+            payload.id = $(event.target).attr("data-id");
+            var callback = $(event.target).attr("data-callback");
+            $.post('deleter.php',payload,function(){ eval(callback);});
+        }
+    });
+});
 
