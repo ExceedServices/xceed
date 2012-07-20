@@ -4,4 +4,3 @@
 <div id="contacts-add-form"></div>
 <div id="contacts-search-results" ></div>
 <div id="contacts-search-detail"></div>
-

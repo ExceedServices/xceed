@@ -21,6 +21,7 @@ if (!isset($_SESSION['id']))
         <script type="text/javascript" src="js/whiteboard.js" ></script>
         <script type="text/javascript" src="dashlets/calendar.js"></script>
         <script type="text/javascript" src="dashlets/contacts.js"></script>
+        <script type="text/javascript" src="dashlets/fileboard.js"></script>
         <script type="text/javascript" src="dashlets/messaging.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="js/datetimepicker.js"></script>
@@ -30,7 +31,7 @@ if (!isset($_SESSION['id']))
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" /></a></div>
+            <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg"/></a></div>
             <div id="userbar">
 		        <?php echo($_SESSION['name']);?> <a href="profile.php">Settings</a>  <a href="killsession.php">Logout</a>
 	        </div>
@@ -42,6 +43,7 @@ if (!isset($_SESSION['id']))
             <div data-loader="users" data-role="admin" class="widget">Retrieving users...</div>
             <div data-loader="jobs" data-role="admin" class="widget">Retrieving jobs...</div>
             <div data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</div>
+            <div data-loader="fileboard" class="widget">Contemplating Filing System...</div>
             <div data-loader="updates" data-role="dev" class="widget">Checking for updates...</div>
         </div>
     </body>

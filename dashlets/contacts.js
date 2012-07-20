@@ -9,7 +9,7 @@ $(document).ready(function()
                 $("#contacts-search-results").slideUp();
             }
             else{
-            $("#contacts-search-results").load("ajax/contacts-search-results.php?q=" + $("#contacts-search").val());
+            $("#contacts-search-results").load("ajax/contacts-search-results.php?q=" +encodeURIComponent( $("#contacts-search").val()));
             $("#contacts-search-results").slideDown();
             }
         }
