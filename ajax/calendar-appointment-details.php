@@ -20,19 +20,32 @@ while ($item = mysql_fetch_assoc($reader))
     else
         $mapsHTML = '<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='.$item['location'].'&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q='.$item['location'].'" style="color:#0000FF;text-align:left">View Larger Map</a></small>';
 
-    if ($item['creator_id'] == $_SESSION['id'] || hasRole("admin"))
-        $name="<input class='editable bold title' data-savable data-table='Appointments' data-field='name' value='".$item['name']."'>";
-    else 
+    /*if ($item['creator_id'] == $_SESSION['id'] || hasRole("admin"))
+        $name="<input class='editable bold title' data-savable data-table='Appointments' data-field='name' value='".$item['name']."' data-key='".$item['id']."'>";
+    else */
         $name = $item['name'];
-
+    $month = $item['month'];
+    $day = $item['day'];
+    $notes = $item['notes'];
     echo
 <<<STUFF
-<div class="form">
+<div data-key='{$id}' id='calendar-details-div' class="form">
     <table width=100%>
         <tr>
             <td>    
                 <h2 style="color:{$item['color']};" class="bold">{$name}</h2>
-                <p>Starts {$item['month']}/{$item['day']} at {$start} and goes until {$end}.</p><p>{$item['notes']}</p>
+                <div id='startTimeText'>
+                    <div style="display:inline;">Start time:</div>
+                    <div style="display:inline;">{$month}/{$day} {$start}</div>
+                </div>
+                <div id='endTimeText'>
+                    <div style="display:inline;">End time:</div>
+                    <div style="display:inline;">{$month}/{$day} {$end}</div>
+                </div>
+                <p/>
+                <div>
+                    <div>Notes:</div>
+                    <div style='width:350px;'>{$notes}</div>
             </td>
             <td>
                 <p>{$mapsHTML}</p>
@@ -46,6 +59,7 @@ if(hasRole("admin"))
     <input data-delete style="display:inline;" id='delete-message' data-id='{$_GET['id']}' data-table='Appointments' type='submit' value='X' data-callback='
         $("#calendardashlet").load("loader.php?dashlet=calendar");
     '/>
+    <input style="display:inline;" id='edit-appointment' type='submit' value='edit' />
 <?php } ?>
 </div>
 <?php

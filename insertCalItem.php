@@ -2,6 +2,16 @@
 
 require_once("connect.php");
 
+if(isset($_GET['del']))
+{
+    $delResult = mysql_query("Delete from Appointments where id = ".$_GET['del']);
+    if(!$delResult)
+	{
+		echo($insertSQL);
+		die(mysql_error());
+	}
+}
+
 $name = mysql_real_escape_string($_REQUEST['name']);
 $note = mysql_real_escape_string($_REQUEST['notes']);
 $jobId = mysql_real_escape_string($_REQUEST['jobId']);

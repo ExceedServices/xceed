@@ -2,6 +2,18 @@ $(document).ready(function()
 {
     $('body').click(function(event)
     {
+        if($(event.target).is("#edit-appointment"))
+        {
+            var id = $("#calendar-details-div").attr("data-key");
+            $("#calendar-agenda-view").slideUp();
+            $("#calendar-agenda-view").load('ajax/edit-calendar-details.php?id='+id, function(){
+                $("#calendar-agenda-view").slideDown();
+                $("#calendar-35-boxes-view").slideUp();
+            });
+        }
+    });
+    $('body').click(function(event)
+    {
         if($(event.target).is('#new-cal-btn'))
         {
             $('#new-calendar-item').load('ajax/new-appointment-item.php');
