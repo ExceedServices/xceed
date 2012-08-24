@@ -41,7 +41,7 @@ if ($type== "Clients")
         else
             echo('<div>'.$item["contact_address"].'</div>');?>
         <hr>
-        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a>
+        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a><?php if(hasRole("admin")) echo(' - <button id="contacts-admin-delete" data-command="ajax/contacts-delete.php?id='.$id.'">X</button>'); ?>
     <?php } 
 
 }

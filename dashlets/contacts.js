@@ -81,6 +81,15 @@ $(document).ready(function()
                 $("#contact-call-status").slideUp(10000);
             });
         }
+        if($(event.target).is("#contacts-admin-delete"))
+        {
+            $("#contacts-admin-delete").load(($(event.target)).attr("data-command"), function()
+            {
+                alert('Success!');
+            });
+            $("#contacts-search-results").slideDown();
+        }
     });    
     
 });
+
