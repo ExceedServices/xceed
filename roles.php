@@ -38,4 +38,6 @@ function removeRole($userID, $role)
     $_SESSTION['roles'] = $newroles;
 }
 
+$setRoles = array("dev", "admin", "cal", "emp", "ad");
+
 ?>

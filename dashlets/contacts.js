@@ -83,11 +83,12 @@ $(document).ready(function()
         }
         if($(event.target).is("#contacts-admin-delete"))
         {
-            $("#contacts-admin-delete").load(($(event.target)).attr("data-command"), function()
+			var payload = new Object();
+			payload.value = $(event.target).attr("data-value");
+            $.post("ajax/contacts-delete.php", payload,  function(data)
             {
                 alert('Success!');
             });
-            $("#contacts-search-results").slideDown();
         }
     });    
     
