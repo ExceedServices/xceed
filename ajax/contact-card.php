@@ -41,7 +41,7 @@ if ($type== "Clients")
         else
             echo('<div>'.$item["contact_address"].'</div>');?>
         <hr>
-        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a><?php if(hasRole("admin")) echo(' - <button id="contacts-admin-delete" data-command="ajax/contacts-delete.php" data-value="'.$id.'">X</button>'); ?>
+        <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">☎ Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">📱 SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a><?php if(hasRole("admin")) echo(' - <button id="contacts-admin-delete" data-command="ajax/contacts-delete.php" data-value="'.$id.'">X</button>'); ?>
     <?php } 
 
 }
@@ -57,7 +57,7 @@ else
         <div><a href="tel:{$item['phone']}">{$item['phone']}</a></div>
         <div><a href="mailto:{$item['email']}">{$item['email']}</a></div>
         <hr>
-        <a href="mailto:{$item['email']}">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client={$item['phone']}"><img src="img/tel.png"/>Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client={$item['phone']}">SMS</button> - <button data-name="{$item['name']}" class="contacts-post-to-dash">Post to Dashboard</button>
+        <a href="mailto:{$item['email']}">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client={$item['phone']}">☎ Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client={$item['phone']}">📱 SMS</button> - <button data-name="{$item['name']}" class="contacts-post-to-dash">📍 Post to Dashboard</button>
 STUFF;
     }
 }

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('div[data-loader]').each(function(){
+  $('section[data-loader]').each(function(){
     var args = "";
     for(var i = 0; i < this.attributes.length; i++) 
     {
@@ -33,7 +33,7 @@ $(document).ready(function(){
 
     $('body').click(function(event)
     {
-        if($(event.target).is('input[data-delete]'))
+        if($(event.target).is('button[data-delete]'))
         {
             var payload = new Object();
             payload.table = $(event.target).attr("data-table");

@@ -24,9 +24,9 @@ else
     $("#new-message").slideUp();
     $("#inbox").slideDown();
     $("#messagedashlet").load("loader.php?dashlet=messaging");
-'/>
+'/><button>Reply</button>
         </div>
         <div id='message-body'><?php echo($message['body']); ?></div>
-        <button><img src="img/reply.png"/></button>
+        
     </div>
 <?php } ?>

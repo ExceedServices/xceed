@@ -11,4 +11,5 @@ if(isset($_REQUEST['r'])) {$r = $_REQUEST['r'];} else {$r="";}
         <textarea type='text' name='body'></textarea><br>
         <input type='submit' value='Send'>
     </form>
+    <button id='inboxBtn'>Inbox</button>
 </div>
