@@ -38,8 +38,12 @@ if (!isset($_SESSION['id']))
         <div class="bodywrap">
             <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" alt="Exceed"/></a></div>
             <div id="userbar">
-		        <?php echo($_SESSION['name']);?> <a href="profile.php">Settings</a>  <a href="killsession.php">Logout</a>
-	        </div>
+	        <?php echo($_SESSION['name']);?> 
+	        <a href="https://mail.exceedcrew.com">Mail</a> 
+	        <a href="profile.php">Settings</a>  
+	        <a href="killsession.php">Logout</a>
+		     
+	    </div>
             <br class="floatreset"/>
             <section data-loader="nav" class="navbar">Navigating to navigation...</section>
             <section data-loader="contacts" class="widget">Getting Contacts...</section>
