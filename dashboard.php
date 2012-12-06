@@ -39,7 +39,7 @@ if (!isset($_SESSION['id']))
             <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" alt="Exceed"/></a></div>
             <div id="userbar">
 	        <?php echo($_SESSION['name']);?> 
-	        <a href="https://mail.exceedcrew.com">Mail</a> 
+	        <a href="http://mail.exceedcrew.com">Mail</a> 
 	        <a href="profile.php">Settings</a>  
 	        <a href="killsession.php">Logout</a>
 		     
