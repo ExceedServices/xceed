@@ -37,6 +37,9 @@ echo mysql_error();
         <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="js/whiteboard.js" ></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+        
+        <!-- Don't remove, it's for google apps domain ownership verification -->
+        <meta name="google-site-verification" content="39FFXcwSILWlm-iOkbVAGF0n_wGstNWYkq_N6E8X2-U" />
     </head>
     <body>
         <div class="bodywrap">
