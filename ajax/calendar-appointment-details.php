@@ -27,6 +27,8 @@ while ($item = mysql_fetch_assoc($reader))
     $month = $item['month'];
     $day = $item['day'];
     $notes = $item['notes'];
+	$length = $item['num_of_days'];
+	$endDay = $day+$length;
     echo
 <<<STUFF
 <div data-key='{$id}' id='calendar-details-div' class="form">
@@ -40,7 +42,7 @@ while ($item = mysql_fetch_assoc($reader))
                 </div>
                 <div id='endTimeText'>
                     <div style="display:inline;">End time:</div>
-                    <div style="display:inline;">{$month}/{$day} {$end}</div>
+                    <div style="display:inline;">{$month}/{$endDay} {$end}</div>
                 </div>
                 <p/>
                 <div>
