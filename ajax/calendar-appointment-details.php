@@ -58,7 +58,7 @@ STUFF;
 if(hasRole("admin"))
 {
 ?>
-    <button data-delete style="display:inline;" id='delete-message' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' type='submit' value='Delete' />
+    <input data-delete style="display:inline;" id='delete-message' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' type='submit' value="Delete" />
     <input style="display:inline;" id='edit-appointment' type='submit' value='edit' />
 <?php } ?>
 </div>
