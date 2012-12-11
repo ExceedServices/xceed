@@ -58,9 +58,8 @@ STUFF;
 if(hasRole("admin"))
 {
 ?>
-    <input data-delete style="display:inline;" id='delete-message' data-id='{$_GET['id']}' data-table='Appointments' type='submit' value='X' data-callback='
-        $("#calendardashlet").load("loader.php?dashlet=calendar");
-    '/>
+    <button data-delete style="display:inline;" id='delete-message' data-id="{$_GET['id']}" data-table='Appointments' type='submit' value='X' data-callback='
+        $("#calendardashlet").load("loader.php?dashlet=calendar");'/>
     <input style="display:inline;" id='edit-appointment' type='submit' value='edit' />
 <?php } ?>
 </div>
