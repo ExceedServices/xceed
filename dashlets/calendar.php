@@ -27,6 +27,8 @@ $currMo = date("F", $date);
 <h3>Calendar</h3>
 <button id="calendar-show-agenda">Week</button>
 <button id="calendar-show-boxes">Month</button>
+<button id="calendar-new">New</button>
+<div id="new-calendar-item"></div>
 <div id="calendar-35-boxes-view">
     <div style = "text-align:center; margin:5;">
         <button id = "backMonth" value = "<" style = "display:inline; margin-bottom:20px;"
@@ -127,7 +129,4 @@ else
     </div>
 </div>
 <div id="calendar-agenda-view"></div>
-<div class = "newCalcBtn">
-   <input id="new-cal-btn" type = "submit" value = "New Calendar Item"/>
-</div>
-<div id="new-calendar-item"></div>
+

@@ -46,15 +46,15 @@ if (!isset($_SESSION['id']))
 		     
 	    </div>
             <br class="floatreset"/>
-            <section data-loader="nav" class="navbar">Navigating to navigation...</section>
-            <section data-loader="contacts" class="widget">Getting Contacts...</section>
-            <section data-loader="messages2" class="widget">Checking for messages...</section>
+            <section data-loader="nav" class="navbar"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="contacts" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="messages2" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
             <!--<div id="messagedashlet" data-loader="messaging" class="inline-widget">Getting Messages...</div>-->
-            <section data-loader="jobs" data-role="admin" class="widget">Retrieving jobs...</section>
-            <section data-loader="calendar" id="calendardashlet" class="widget">Checking your schedule...</section>
-            <section data-loader="users" data-role="admin" class="widget">Retrieving users...</section>
-            <section data-loader="fileboard" class="widget">Contemplating Filing System...</section>
-            <section data-loader="updates" data-role="dev" class="widget">Checking for updates...</section>
+            <section data-loader="jobs" data-role="admin" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="calendar" id="calendardashlet" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="users" data-role="admin" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="fileboard" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
+            <section data-loader="updates" data-role="dev" class="widget"><img src="/img/103.png" alt="Loading..."/></section>
         </div>
     </body>
 </html>

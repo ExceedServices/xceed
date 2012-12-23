@@ -14,7 +14,7 @@ $(document).ready(function()
     });
     $('body').click(function(event)
     {
-        if($(event.target).is('#new-cal-btn'))
+        if($(event.target).is('#calendar-new'))
         {
             $('#new-calendar-item').load('ajax/new-appointment-item.php');
             $('#new-calendar-item').slideDown();
