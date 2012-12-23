@@ -11,13 +11,6 @@ $(document).ready(function()
 
    $('body').click(function(event)
     {
-        if ($(event.target).is('#inboxBtn'))
-        {
-            $("#new-message").slideUp();
-            $("#messages-inbox").slideDown();
-            $("#messagedashlet").load('/ajax/messages-inbox.php');
-        }
-
         if ($(event.target).is('#newMessageBtn'))
         {
             $("#new-message").load('ajax/new-message.php', function ()
