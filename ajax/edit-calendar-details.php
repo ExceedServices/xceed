@@ -104,7 +104,6 @@ while($item = mysql_fetch_array($result))
         </table>
         <input type="submit" value="Save"/>
      </form>
-    <input type="submit" value="Cancel" id="cancel-calendar-button"/>
 </div>
 <script type="text/javascript">
 	$('.datetime').datetimepicker();

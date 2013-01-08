@@ -27,7 +27,7 @@ while ($item = mysql_fetch_assoc($reader))
     $month = $item['month'];
     $day = $item['day'];
     $notes = $item['notes'];
-	$length = $item['num_of_days'];
+    $length = $item['num_of_days'];
 	$endDay = $day+$length;
     echo
 <<<STUFF
@@ -48,6 +48,9 @@ while ($item = mysql_fetch_assoc($reader))
                 <div>
                     <div>Notes:</div>
                     <div style='width:350px;'>{$notes}</div>
+                    <!--<div>Crew:</div>
+                    <div id="calandar-appointment-crew" style='width:350px;'></div>
+                    <input id="calendar-add-crew-box" placeholder="Add">-->
             </td>
             <td>
                 <p>{$mapsHTML}</p>
@@ -59,7 +62,7 @@ if(hasRole("admin"))
 {
 ?>
     <button data-delete style="display:inline;" id='delete-message' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' >Delete</button>
-    <input style="display:inline;" id='edit-appointment' type='submit' value='edit' />
+    <button style="display:inline;" id='edit-appointment'>Edit</button>
 <?php } ?>
 </div>
 <?php
