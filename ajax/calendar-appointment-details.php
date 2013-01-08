@@ -7,6 +7,8 @@ $id = mysql_real_escape_string($_GET['id']);
 $reader = mysql_query("Select * from Appointments where id = '$id'");
 while ($item = mysql_fetch_assoc($reader))
 {
+
+    //<gross>
     if(substr($item['startTime'],0,2)<13)
         $start = substr($item['startTime'],0,5).'a';
     else
@@ -15,6 +17,8 @@ while ($item = mysql_fetch_assoc($reader))
         $end = substr($item['endTime'],0,5).'a';
     else
         $end = (substr($item['endTime'],0,2)-12).substr($item['endTime'],2,3).'p';
+    //</gross>
+
     if ($item['location'] == "" || $item['location'] =="none")
         $mapsHTML ="";
     else
@@ -29,13 +33,18 @@ while ($item = mysql_fetch_assoc($reader))
     $notes = $item['notes'];
     $length = $item['num_of_days'];
 	$endDay = $day+$length;
+    if ($item['job_id'] == "")
+        $jobId = "";
+    else
+        $jobId = "(#".$item['job_id'].")";
+
     echo
 <<<STUFF
 <div data-key='{$id}' id='calendar-details-div' class="form">
     <table width=100%>
         <tr>
             <td>    
-                <h2 style="color:{$item['color']};" class="bold">{$name}</h2>
+                <h2 style="color:{$item['color']};" class="bold">{$name} {$jobId}</h2>
                 <div id='startTimeText'>
                     <div style="display:inline;">Start time:</div>
                     <div style="display:inline;">{$month}/{$day} {$start}</div>
@@ -49,7 +58,9 @@ while ($item = mysql_fetch_assoc($reader))
                     <div>Notes:</div>
                     <div style='width:350px;'>{$notes}</div>
                     <!--<div>Crew:</div>
-                    <div id="calandar-appointment-crew" style='width:350px;'></div>
+                    <div id="calandar-appointment-crew" style='width:350px;'>
+                    {$crew}
+                    </div>
                     <input id="calendar-add-crew-box" placeholder="Add">-->
             </td>
             <td>
@@ -61,7 +72,7 @@ STUFF;
 if(hasRole("admin"))
 {
 ?>
-    <button data-delete style="display:inline;" id='delete-message' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' >Delete</button>
+    <button data-delete style="display:inline;" id='delete-appointment' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' >Delete</button>
     <button style="display:inline;" id='edit-appointment'>Edit</button>
 <?php } ?>
 </div>
