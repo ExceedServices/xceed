@@ -1,10 +1,10 @@
 <?php
 if(!isset($_SESSION))
     session_start();
-
-if (!isset($_SESSION['id']))
+if(!isset($_SESSION['id']))
     header('location: /');
-?><!doctype html>
+?>
+<!doctype html>
 <html>
     <head>
         <!-- our original -->
@@ -56,4 +56,3 @@ if (!isset($_SESSION['id']))
         </div>
     </body>
 </html>
-
