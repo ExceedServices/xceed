@@ -98,12 +98,7 @@ a img
     border:1px #888888 solid;
 }
 
-.cal-popup
-{
-    padding: 5px;
-    background-color: #1F75FF;
-    border-radius: 5px;
-}
+
 
 .centered
 {
@@ -118,11 +113,7 @@ a img
    height:14px;
 }
 
-.newCalcBtn
-{
-    text-align:left;
-    margin-left: 10%;
-}
+
 
 .header-row
 {
@@ -160,22 +151,6 @@ a img
     height:100px;
 }
 
-.appointments
-{
-    height:76px;
-    overflow:auto;
-}
-
-.appointments div:nth-child(odd)
-{
-    background-color:#BFE0E2;
-}
-
-.appointments div:nth-child(even)
-{
-    background-color:#8FE0E2;
-}
-
 .form
 {
     border-radius: 5px;
@@ -208,6 +183,12 @@ a img
     margin-left: 4em;
 }
 
+.cal-item 
+{
+    margin: 1px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.28);
+}
 #contacts-search
 {
     font-family: 'Ubuntu', sans-serif;

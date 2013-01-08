@@ -94,7 +94,7 @@ while($item = mysql_fetch_array($result))
                    <label for="privacy">Privacy</label>
                </td>
                <td>
-                   <select name="privacy" value="<?php echo $privacy; ?>">
+                   <select name="privacy">
                        <option value="0">Public</option>
                        <option value="1">Directors</option>
                        <option value="2">Private</option>

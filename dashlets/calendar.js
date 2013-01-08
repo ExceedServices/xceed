@@ -11,27 +11,28 @@ $(document).ready(function()
                 $("#calendar-35-boxes-view").slideUp();
             });
         }
-    });
-    $('body').click(function(event)
-    {
+
         if($(event.target).is('#calendar-new'))
         {
             $('#new-calendar-item').load('ajax/new-appointment-item.php');
             $('#new-calendar-item').slideDown();
             $('#color1').colorPicker();
         }
-    });
 
-    $('body').click(function(event)
-    {
+        if ($(event.target).is('#delete-appointment'))
+        {
+            $('#calendar-35-boxes-view').slideUp();
+            $('#calendar-35-boxes-view').load('ajax/calendar-month.php', function(){
+                $('#calendar-agenda-view').slideUp();
+                $('#calendar-35-boxes-view').slideDown();
+            });
+        }
+
         if($(event.target).is('#cancel-calendar-button'))
         {
             $('#new-calendar-item').slideUp();
         }
-    });
-    
-    $('body').click(function(event)
-    {
+
         if($(event.target).is('#calendar-show-agenda'))
         {
             $('#calendar-agenda-view').slideUp();
@@ -41,10 +42,7 @@ $(document).ready(function()
                 $('#calendar-35-boxes-view').slideUp();
             });
         }
-    });
-    
-    $('body').click(function(event)
-    {
+
         if($(event.target).is('#calendar-show-boxes'))
         {
             $('#calendar-35-boxes-view').slideUp();
@@ -53,10 +51,7 @@ $(document).ready(function()
                 $('#calendar-35-boxes-view').slideDown();
             });
         }
-    });
-    
-    $('body').click(function(event)
-    {
+
         if($(event.target).is(".calendar-agenda-item > *") || $(event.target).is(".calendar-agenda-item") || $(event.target).is(".cal-item"))
         {
             $("#calendar-agenda-view").slideUp();

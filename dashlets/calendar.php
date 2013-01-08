@@ -102,7 +102,7 @@ else
     for($i=0;$i<5;$i++)
     {?>
     <div>
-            <table cellspacing=0 class="date-row"><tr>
+            <table cellspacing="0" border="0" class="date-row"><tr>
         <?php for($j=0; $j<7;$j++)
         {
             if($j<6)

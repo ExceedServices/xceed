@@ -17,7 +17,7 @@ else
     while($item = mysql_fetch_array($result))
     { echo
 <<<CONTENT
-<div class="messages-item form"><h4 class="message-title">📍 {$item['name']} {$item['title']} <button data-delete data-table="Messages" data-id={$item['id']}> Delete </button> <button id="messages-reply-button" data-name="{$item['name']}">Reply</button></h4> <p>{$item['body']}</p></div>
+<div class="messages-item form"><h4 class="message-title">📍 {$item['name']} {$item['title']} <button class="message-delete" data-delete data-table="Messages" data-id={$item['id']}> Delete </button> <button id="messages-reply-button" data-name="{$item['name']}">Reply</button></h4> <p>{$item['body']}</p></div>
 CONTENT;
 
     }
