@@ -25,4 +25,4 @@ require_once("../connect.php");
         header("location: ../dashboard.php");
     else
         die(mysql_error());
-?> 
+?>
