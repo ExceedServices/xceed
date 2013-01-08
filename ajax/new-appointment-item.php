@@ -41,7 +41,7 @@ while($item = mysql_fetch_array($result))
                    <label for="location">Location</label>
                </td>
                <td>
-                   <input id="Location" type="text" name="location" required="required"/>
+                   <input id="Location" type="text" name="location"/>
                </td>
            </tr>
            <tr>

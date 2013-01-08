@@ -62,7 +62,7 @@ while($item = mysql_fetch_array($result))
                    <label for="location">Location</label>
                </td>
                <td>
-                   <input id="Location" type="text" name="location" required="required" value="<?php echo $location; ?>"/>
+                   <input id="Location" type="text" name="location" value="<?php echo $location; ?>"/>
                </td>
            </tr>
             <tr>
