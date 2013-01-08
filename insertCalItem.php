@@ -25,6 +25,10 @@ $dif = abs(strtotime($_REQUEST['end_time']) - strtotime($_REQUEST['start_time'])
 $numDays = floor($dif/(60*60*24));
 
 $color = mysql_real_escape_string($_REQUEST['color1']);
+
+if ($jobId =="")
+    $jobId = "NULL";
+
 if(isset($_REQUEST['location']))
       $location=mysql_real_escape_string($_REQUEST['location']);
 else

@@ -20,20 +20,10 @@
            </tr>
            <tr>
                <td>
-                   <label for="jobId">Job ID</label>
+                   <label for="jobId">Quickbooks Job #</label>
                </td>
                <td>
-                   <select name='jobId'>
-                       <option id='null' value='null'></option>
-<?php
-$sql = "select id from Jobs";
-$result = mysql_query($sql);
-while($item = mysql_fetch_array($result))
-{
-    echo("<option id='".$item['id']."' value ='".$item['id']."'>".$item['id']."</option>");
-}
-?>
-                   </select>
+                   <input type="number" name="jobId"/>
                </td>
            </tr>
            <tr>

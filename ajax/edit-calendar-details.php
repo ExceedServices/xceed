@@ -41,20 +41,21 @@ while ($item = mysql_fetch_assoc($reader))
            </tr>
 <tr>
                <td>
-                   <label for="jobId">Job ID</label>
+                   <label for="jobId">Quickbooks Job #</label>
                </td>
                <td>
-                   <select name='jobId'>
+   <!--                <select name='jobId'>
                        <option id='null' value='null'></option>
 <?php
-$sql = "select id from Jobs";
+/*$sql = "select id from Jobs";
 $result = mysql_query($sql);
 while($item = mysql_fetch_array($result))
 {
     echo("<option id='".$item['id']."' value ='".$item['id']."'>".$item['id']."</option>");
-}
+}*/
 ?>
-                   </select>
+                   </select>-->
+                   <input type="number" name="jobId" value="<?php echo $item['job_id']; ?>"/>
                </td>
            </tr>
            <tr>
