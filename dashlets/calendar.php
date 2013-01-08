@@ -62,7 +62,7 @@ $currMo = date("F", $date);
             ?>')">></button>
     </div>
     <?php
-if(hasrole("ad"))
+if(hasrole("admin"))
     $sql = "select name, day, id, color, num_of_days\n"
         . "from Appointments\n"
         . "where month = $moNum"

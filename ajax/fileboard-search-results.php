@@ -41,4 +41,3 @@
     echo "<div class=fileboard-search-results >{$file['name']}</div>";
   }
 ?>
-ding!

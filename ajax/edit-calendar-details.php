@@ -103,6 +103,7 @@ while($item = mysql_fetch_array($result))
           </tr>
         </table>
         <input type="submit" value="Save"/>
+        <button id="cancel-calendar-button">Cancel</button>
      </form>
 </div>
 <script type="text/javascript">
