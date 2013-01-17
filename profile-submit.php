@@ -1,5 +1,6 @@
 <?php
 require_once("connect.php");
+require_once('class/Crypt.php');
 
 $id = $_SESSION['id'];
 $name = $_REQUEST['name'];
@@ -7,7 +8,7 @@ $phone = $_REQUEST['phone'];
 $email = $_REQUEST['email'];
 $canSMS = $_REQUEST['canSMS']== "on";
 if ($_REQUEST['password']!= ""||$_REQUEST['password-confirm']!="" && $_REQUEST['password']==$_REQUEST['password-confirm'])
-    $maybepassword = "password = '".md5($_REQUEST['password']) ."'";
+    $maybepassword = "password = '".Crypt::hash($_REQUEST['password']) ."'";
 else
     $maybepassword="";
 
