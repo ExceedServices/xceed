@@ -1,5 +1,6 @@
 <?php
         require_once("connect.php");
+require_once('classes/Crypt.php');
 
 if(!isset($_SESSION['id']))
 {
@@ -12,8 +13,20 @@ if(!isset($_SESSION['id']))
         $result = mysql_query($q);
         if ($result)
             $user = mysql_fetch_array($result);
+	
+	$passMatch = FALSE;
+	if (strlen($user['password']) == 32) // old md5 password
+	{
+	    $passMatch = (md5($_REQUEST['password']) == $user['password']);
+	    $newPass = Crypt::hash($_REQUEST['password']);
+	    mysql_query("UPDATE `Users` SET `password`='$newPass' WHERE `id`=" . $user['id']);
+	}
+	else
+	{
+	    $passMatch = Crypt::test($_REQUEST['password'],$user['password']);
+	}
 
-        if ($login == $user['email'] and md5($_REQUEST['password']) == $user['password'])
+        if ($login == $user['email'] and $passMatch)
         {
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
