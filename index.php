@@ -33,6 +33,7 @@ if(!isset($_SESSION['id']))
             $_SESSION['email'] = $user['email'];
             $_SESSION['roles'] = $user['Roles'];
             $_SESSION['phone'] = $user['phone'];
+	    $_SESSION['canSMS'] = $user['canSMS'];
         }
     }
 }

@@ -1,5 +1,8 @@
 <?php
     require_once("connect.php");
+require_once('classes/Crypt.php');
+$token = Crypt::makeToken();
+$_SESSION['CSRF_TOKEN'] = $token;
 ?>
 
 <!doctype html>
@@ -30,13 +33,14 @@
                 Display Name:<br>
                 <input type="text" name="name" value="<?php echo($_SESSION['name']); ?>"/><br/>
                 Primary Phone Number:<br>
-                <input type="tel" name="phone" value="<?php echo($_SESSION['phone']); ?>"/><input type="checkbox" name="canSMS" checked="<?php echo($_SESSION['canSMS']); ?>"/>SMS<br>
+    <input type="tel" name="phone" value="<?php echo($_SESSION['phone']); ?>"/><input type="checkbox" name="canSMS" <?php echo ($_SESSION['canSMS'] ? 'checked':'');?>/>SMS<br>
                 Login Address:<br>
                 <input type="email" name="email" value="<?php echo($_SESSION['email']); ?>"/><br>
                 Password: (leave blank for no change)<br>
                 <input type="password" name="password" /><br>
                 Again:<br>
                 <input type="password" name="password-confirm" /><br>
+                <input type="hidden" name="CSRF_TOKEN" value="<?php echo $token;?>" />
                 <input type="submit" value="Update Profile" />
                     </form>
             </div>
