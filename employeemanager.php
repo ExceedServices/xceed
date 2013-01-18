@@ -1,13 +1,15 @@
 <?php if(!isset($_SESSION)) session_start();
 require_once("roles.php");
 require_once("connect.php");
+require_once('classes/Crypt.php');
+
 if(isset($_POST))
 {
     if($_GET['a'] == 1 && $_POST['save'])
     {
         $name = mysql_real_escape_string($_POST['name']);
         $email = mysql_real_escape_string($_POST['email']);
-        $pwd = md5($_POST['pwd']);
+        $pwd = Crypt::hash($_POST['pwd']);
         $roles = mysql_real_escape_string($_POST['Roles']);
         $phone = mysql_real_escape_string($_POST['phone']);
         
