@@ -63,7 +63,7 @@ while ($item = mysql_fetch_assoc($reader))
                    <label for="notes">Notes</label>
                </td>
                <td>
-                   <input id="Notes" type="text" name="notes" value="<?php print $note; ?>"/>
+                   <textarea id="Notes" name="notes"><?php print $note; ?></textarea>
                </td>
            </tr>
 <tr>
@@ -90,7 +90,7 @@ while($item = mysql_fetch_array($result))
                    <label for="location">Location</label>
                </td>
                <td>
-                   <input id="Location" type="text" name="location" value="<?php echo $location; ?>"/>
+                   <textarea id="Location" name="location"><?php echo $location; ?></textarea>
                </td>
            </tr>
             <tr>
