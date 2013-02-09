@@ -1,7 +1,23 @@
-<?php require_once("../connect.php");?>
+<?php 
+ 
+ require_once("../connect.php");
+ 
+ function enumerateCrews()
+ {
+     $q = "select id, name from Users";
+     $result = mysql_query($q);
+     while ($row = mysql_fetch_assoc($result))
+     {
+         echo '<input type="checkbox" name="crews[]" value="'.$row['id'].'" id="crewcheck'.$row['id'].'" /><label for="crewcheck'.$row['id'].'">'.$row['name'].'</label><br>';
+     }
+ }
+ 
+ ?>
 <div class="form">
     <form method="post" action="insertCalItem.php">
-        <table class="formTable">
+        <table>
+            <tr>
+                <td><table class="formTable">
             <tr>
                 <td>
                     <label for="name">Name</label>
@@ -70,7 +86,11 @@
                    </select>
                </td>
           </tr>
-       </table>
+       </table></td>
+                <td><?php enumerateCrews(); ?></td>
+            </tr>
+        </table>    
+        
        <input type="submit" value="Submit"/>
        <div id=sqlString><?php echo($InsertSQL);?></div>
     </form>

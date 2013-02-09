@@ -44,15 +44,14 @@ else
 	.$color."','".$location."',".$privacy.",".$userId.",".$numDays.")";
 
 	$insertResult = mysql_query($insertSQL);
-	if(!$insertResult)
-	{
-		echo($insertSQL);
-		die(mysql_error());
-	}
-	else
-	{
+    $insertedAppointment = mysql_insert_id();
+        foreach($_POST['crews'] as $crew)
+        {
+            $q = "insert into CrewAssignments (userId, appointmentId) values (".$crew." ,". $insertedAppointment.")";
+            mysql_query($q);
+        }
 		header("location: dashboard.php");
-	}
+	
 
 
 ?>

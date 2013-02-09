@@ -23,7 +23,18 @@ while ($item = mysql_fetch_assoc($reader))
         $mapsHTML ="";
     else
         $mapsHTML = '<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='.$item['location'].'&output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?q='.$item['location'].'" style="color:#0000FF;text-align:left">View Larger Map</a></small>';
+        
 
+    $crewq = "select u.name from CrewAssignments ca, Users u where u.id = ca.userId and ca.appointmentId = ".$id;
+
+    $crewresult = mysql_query($crewq);
+    echo mysql_error();
+    $crew = "<div>Crew:</div>";
+    while ($crewrow = mysql_fetch_assoc($crewresult))
+    {
+        $crew = $crew."<p>".$crewrow['name']."</p>";
+    }
+    echo mysql_error();
     /*if ($item['creator_id'] == $_SESSION['id'] || hasRole("admin"))
         $name="<input class='editable bold title' data-savable data-table='Appointments' data-field='name' value='".$item['name']."' data-key='".$item['id']."'>";
     else */
@@ -56,12 +67,10 @@ while ($item = mysql_fetch_assoc($reader))
                 <p/>
                 <div>
                     <div>Notes:</div>
-                    <div style='width:350px;'>{$notes}</div>
-                    <!--<div>Crew:</div>
-                    <div id="calandar-appointment-crew" style='width:350px;'>
+                    <pre style='width:350px;'>{$notes}</pre>
+                    <div id="calandar-appointment-crew">
                     {$crew}
                     </div>
-                    <input id="calendar-add-crew-box" placeholder="Add">-->
             </td>
             <td>
                 <p>{$mapsHTML}</p>

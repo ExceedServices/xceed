@@ -19,10 +19,29 @@ while ($item = mysql_fetch_assoc($reader))
 
     $start = $month.'/'.$day.'/'.$year.' '.$startTime;
     $end = $month.'/'.$day.'/'.$year.' '.$endTime;
+
+    //I know i shouldn't ctrl-c, ctrl-v this, but i wil refactor this later.
+     function enumerateCrews($appointmentId)
+ {
+     $q = "select id, name from Users";
+     $result = mysql_query($q);
+     while ($row = mysql_fetch_assoc($result))
+     {
+
+         $qExists = "select count(*) from CrewAssignments where userId=". $row['id']." and appointmentId = ".$appointmentId;
+         if (mysql_fetch_array(mysql_query($qExists))[0] == 1)
+            $selected = 'checked="checked"';
+         else $selected = "";
+         echo '<input type="checkbox" name="crews[]" value="'.$row['id'].'" id="crewcheck'.$row['id'].'" '.$selected.' /><label for="crewcheck'.$row['id'].'">'.$row['name'].'</label><br>';
+     }
+ }
+
     ?>
 <div class="form">
     <form method="post" action="insertCalItem.php?del=<?php echo $id; ?>">
-        <table class="formTable">
+        <table>
+            <tr>
+                <td><table class="formTable">
             <tr>
                 <td>
                     <label for="name">Name</label>
@@ -102,7 +121,13 @@ while($item = mysql_fetch_array($result))
                    </select>
                </td>
           </tr>
+        </table></td>
+                <td><?php enumerateCrews($id); ?></td>
+            </tr>
         </table>
+        
+        
+        
         <input type="submit" value="Save"/>
         <button id="cancel-calendar-button">Cancel</button>
      </form>
