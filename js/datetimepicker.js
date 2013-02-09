@@ -32,7 +32,7 @@ function Timepicker() {
 	this.regional[''] = { // Default regional settings
 		currentText: 'Now',
 		closeText: 'Done',
-		ampm: false,
+		ampm: true,
 		amNames: ['AM', 'A'],
 		pmNames: ['PM', 'P'],
 		timeFormat: 'hh:mm tt',
