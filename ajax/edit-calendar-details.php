@@ -29,9 +29,11 @@ while ($item = mysql_fetch_assoc($reader))
      {
 
          $qExists = "select count(*) from CrewAssignments where userId=". $row['id']." and appointmentId = ".$appointmentId;
-         if (mysql_fetch_array(mysql_query($qExists))[0] == 1)
-            $selected = 'checked="checked"';
-         else $selected = "";
+         $resultExists = mysql_query($qExists)
+            if($resultExists)
+                if (mysql_fetch_array($resultExists)[0] ==1)
+                    $selected = 'checked="checked"';
+                else $selected = "";
          echo '<input type="checkbox" name="crews[]" value="'.$row['id'].'" id="crewcheck'.$row['id'].'" '.$selected.' /><label for="crewcheck'.$row['id'].'">'.$row['name'].'</label><br>';
      }
  }
