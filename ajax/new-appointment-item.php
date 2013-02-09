@@ -15,7 +15,7 @@
                    <label for="notes">Notes</label>
                </td>
                <td>
-                   <input id="Notes" type="text" name="notes"/>
+                   <textarea id="Notes"  name="notes"></textarea>
                </td>
            </tr>
            <tr>
@@ -31,7 +31,7 @@
                    <label for="location">Location</label>
                </td>
                <td>
-                   <input id="Location" type="text" name="location"/>
+                   <textarea id="Location" name="location"></textarea>
                </td>
            </tr>
            <tr>
