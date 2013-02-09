@@ -29,7 +29,7 @@ while ($item = mysql_fetch_assoc($reader))
      {
 
          $qExists = "select count(*) from CrewAssignments where userId=". $row['id']." and appointmentId = ".$appointmentId;
-         $resultExists = mysql_query($qExists)
+         $resultExists = mysql_query($qExists);
             if($resultExists)
                 if (mysql_fetch_array($resultExists)[0] ==1)
                     $selected = 'checked="checked"';
