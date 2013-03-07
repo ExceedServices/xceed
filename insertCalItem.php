@@ -1,6 +1,5 @@
 <?php 
-
-require_once("connect.php");
+require_once "connect.php";
 
 if(isset($_GET['del']))
 {
@@ -30,28 +29,24 @@ if ($jobId =="")
     $jobId = "NULL";
 
 if(isset($_REQUEST['location']))
-      $location=mysql_real_escape_string($_REQUEST['location']);
+    $location=mysql_real_escape_string($_REQUEST['location']);
 else
 	$location="NULL";
 
 
-	$insertSQL = "insert into Appointments (name,notes,job_id,month,day,year,startTime,endTime,roles,color,location,privacy,creator_id,num_of_days)"
-	."values('".$name."','".$note."',".$jobId.",".$start['month'].","
-	.$start['day'].","
-	.$start['year'].","
-	."'".$start['hour'].":".$start['minute']."',"
-	."'".$end['hour'].":".$end['minute']."',null,'"
-	.$color."','".$location."',".$privacy.",".$userId.",".$numDays.")";
+$insertSQL = "insert into Appointments (name,notes,job_id,month,day,year,startTime,endTime,roles,color,location,privacy,creator_id,num_of_days)"
+."values('".$name."','".$note."',".$jobId.",".$start['month'].","
+.$start['day'].","
+.$start['year'].","
+."'".$start['hour'].":".$start['minute']."',"
+."'".$end['hour'].":".$end['minute']."',null,'"
+.$color."','".$location."',".$privacy.",".$userId.",".$numDays.")";
 
-	$insertResult = mysql_query($insertSQL);
-    $insertedAppointment = mysql_insert_id();
-        foreach($_POST['crews'] as $crew)
-        {
-            $q = "insert into CrewAssignments (userId, appointmentId) values (".$crew." ,". $insertedAppointment.")";
-            mysql_query($q);
-        }
-		header("location: dashboard.php");
-	
-
-
-?>
+$insertResult = mysql_query($insertSQL);
+$insertedAppointment = mysql_insert_id();
+foreach($_POST['crews'] as $crew)
+{
+	$q = "insert into CrewAssignments (userId, appointmentId) values (".$crew." ,". $insertedAppointment.")";
+	mysql_query($q);
+}
+header("location: dashboard.php");

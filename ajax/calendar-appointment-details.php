@@ -1,7 +1,7 @@
 <?php
 
-require_once("../connect.php");
-require_once("../roles.php");
+require_once "../connect.php";
+require_once "../roles.php";
 
 $id = mysql_real_escape_string($_GET['id']);
 $reader = mysql_query("Select * from Appointments where id = '$id'");
@@ -35,10 +35,7 @@ while ($item = mysql_fetch_assoc($reader))
         $crew = $crew."<p>".$crewrow['name']."</p>";
     }
     echo mysql_error();
-    /*if ($item['creator_id'] == $_SESSION['id'] || hasRole("admin"))
-        $name="<input class='editable bold title' data-savable data-table='Appointments' data-field='name' value='".$item['name']."' data-key='".$item['id']."'>";
-    else */
-        $name = $item['name'];
+    $name = $item['name'];
     $month = $item['month'];
     $day = $item['day'];
     $notes = $item['notes'];
@@ -87,4 +84,3 @@ if(hasRole("admin"))
 </div>
 <?php
 }
-?>
