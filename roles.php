@@ -1,41 +1,43 @@
 <?php
 
-require_once "connect.php";
+require_once("connect.php");
 
-function hasRole($role) {
-    return strpos($_SESSION['user']['Roles'], "|$role|") !== false;
+function hasRole($role)
+{
+    return (!(strpos($_SESSION['roles'], "|$role|") === false));
 }
-
-function addRole($userID, $role) {
-    $roles = get_roles($userID);
-
+    
+function addRole($userID, $role)
+{
+    $q = "SELECT `id`,`roles` FROM `Users` WHERE `id` = $userID";
+    $result = mysql_query($q);
+    $user= mysql_fetch_assoc($result);
+    $roles = split($user['roles'], '|');
+    
     array_push($roles, $role);
-
-	save_roles($roles, $userID);
+    
+    $newroles = join($roles, '|');
+    
+    mysql_query("UPDATE `xceeddev`.`Users` SET `Roles` = '$newroles' WHERE `Users`.`id` = $userID;");
+    $_SESSTION['roles'] = $newroles;
 }
 
-function removeRole($userID, $role) {
-    $roles = get_roles($userID);
-
+function removeRole($userID, $role)
+{
+    $q = "SELECT `id`,`roles` FROM `Users` WHERE `id` = $userID";
+    $result = mysql_query($q);
+    $user= mysql_fetch_assoc($result);
+    $roles = split($user['roles']);
+    
     $index = array_search($role, $roles);
     unset($roles[$index]);
-
-	save_roles($roles, $userID);
-}
-
-function get_roles($user_id) {
-	$user = database()->retrieve("users", $userID);
-    $roles = split($user['roles'], '|');
-	unset($roles[count($roles)]);
-	unset($roles[0]);
-	return $roles;
-}
-
-function save_roles($roles, $user_id) {
-    $new_roles = "|" . join($roles, '|') . "|";
-    $user["roles"] = $new_roles;
-	database()->save("users", $user);
-    $_SESSION['user']['roles'] = $new_roles;
+    
+    $newroles = join($roles, '|');
+    
+    mysql_query("UPDATE `xceeddev`.`Users` SET `Roles` = '$newroles' WHERE `Users`.`id` = $userID;");
+    $_SESSTION['roles'] = $newroles;
 }
 
 $setRoles = array("dev", "admin", "cal", "emp", "ad");
+
+?>

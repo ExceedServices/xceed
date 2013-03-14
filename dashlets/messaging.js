@@ -1,12 +1,12 @@
 function refreshMessage()
 {
-    $("#messages-inbox").load('ajax/messages-inbox.php');
+    $("#messages-inbox").load('/ajax/messages-inbox.php');
 }
 
 
 $(document).ready(function ()
 {
-    $("#messages-inbox").load('ajax/messages-inbox.php');
+    $("#messages-inbox").load('/ajax/messages-inbox.php');
     setInterval("refreshMessage()", 15000);
 
     $('body').click(function (event)
@@ -14,7 +14,7 @@ $(document).ready(function ()
         if ($(event.target).is(".message-delete"))
         {
             $("#messages-inbox").slideUp();
-            $("#messages-inbox").load('ajax/messages-inbox.php',function(event)
+            $("#messages-inbox").load('/ajax/messages-inbox.php',function(event)
             {
                 $("#messages-inbox").slideDown();
             });

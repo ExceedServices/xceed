@@ -1,20 +1,25 @@
 <?php
-require_once '../connect.php';
-require_once '../roles.php';
+require_once('../connect.php');
+require_once('../roles.php');
 
-if (isset($_GET['id'], $_GET['type'])) {
+if(isset($_GET['id'])&& isset($_GET['type']))
+{
     $id = $_GET['id'];
     $type = $_GET['type'];
-} else {
+}
+else
+{
     die();
-} ?>
+}?>
 <div class="form" data-contact-id="<?php echo $_GET['id']; ?>">
 <?php
-if ($type === "Clients") {
-    $sql = "select * from Clients where id = '$id'";
+if ($type== "Clients")
+{
+    $sql="select * from Clients where id = '$id'";
     $result = mysql_query($sql);
 
-    while ($item = mysql_fetch_assoc($result)) {
+    while($item = mysql_fetch_assoc($result))
+    {
         if(hasRole("admin"))
             echo('<input data-savable data-table="Clients" data-key="'.$id.'" data-field="name" class="editable bold" value="'.$item['name'].'"/>');
         else
@@ -39,10 +44,13 @@ if ($type === "Clients") {
         <a href="mailto:<?php echo $item[contact_email]; ?>">Email</a> - <button id="contacts-call-button" data-command="calls/makecall.php?client=<?php echo($item['contact_phone']); ?>">☎ Call</button> - <button id="contacts-sms-button" data-command="ajax/sms-form.php?client=<?php echo $item['contact_phone']; ?>">📱 SMS</button> - <a href="http://maps.google.com/maps/?q=<?php echo urlencode($item['contact_address']) ?>" target="_blank">Map</a><?php if(hasRole("admin")) echo(' - <button id="contacts-admin-delete" data-command="ajax/contacts-delete.php" data-value="'.$id.'">X</button>'); ?>
     <?php } 
 
-} else {
-    $sql = "Select id, name, phone, email from Users where id = '$id'";
+}
+else 
+{
+    $sql="Select id, name, phone, email from Users where id = '$id'";
     $result = mysql_query($sql);
-    while ($item = mysql_fetch_assoc($result)) {
+    while ($item = mysql_fetch_assoc($result))
+    {
     echo
 <<<STUFF
         <div class="bold">{$item['name']}</div>
