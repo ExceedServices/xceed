@@ -45,11 +45,14 @@ else
 
 	$insertResult = mysql_query($insertSQL);
     $insertedAppointment = mysql_insert_id();
+    if(isset($POST['crews']))
+    {
         foreach($_POST['crews'] as $crew)
         {
             $q = "insert into CrewAssignments (userId, appointmentId) values (".$crew." ,". $insertedAppointment.")";
             mysql_query($q);
         }
+    }
 		header("location: dashboard.php");
 	
 
