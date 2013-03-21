@@ -3,7 +3,10 @@ if(!isset($_SESSION))
     session_start();
 if(!isset($_SESSION['id']))
     header('location: index.php');
+
+var $time = time();
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -24,10 +27,10 @@ if(!isset($_SESSION['id']))
                 
         <!-- Ours -->
         <script type="text/javascript" src="js/whiteboard.js" ></script>
-        <script type="text/javascript" src="dashlets/calendar.js"></script>
-        <script type="text/javascript" src="dashlets/contacts.js"></script>
-        <script type="text/javascript" src="dashlets/fileboard.js"></script>
-        <script type="text/javascript" src="dashlets/messaging.js"></script>
+        <script type="text/javascript" src="dashlets/calendar.js?<?php echo($time);?>"></script>
+        <script type="text/javascript" src="dashlets/contacts.js?<?php echo($time);?>"></script>
+        <script type="text/javascript" src="dashlets/fileboard.js?<?php echo($time);?>"></script>
+        <script type="text/javascript" src="dashlets/messaging.js?<?php echo($time);?>"></script>
 
 		
 		<title>Exceed Services Dashboard</title>
