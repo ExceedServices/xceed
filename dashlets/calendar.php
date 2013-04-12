@@ -5,7 +5,7 @@ if(isset($_GET['m']))
 }
 else
 {
-    $moNum = date('m',time());
+    $moNum = date('m');
 }
 if(isset($_GET['y']))
 {
@@ -13,7 +13,7 @@ if(isset($_GET['y']))
 }
 else
 {
-    $year = date('Y',time());
+    $year = date('Y');
 }
 require_once("connect.php");
 require_once("roles.php");
@@ -43,7 +43,7 @@ $currMo = date("F", $date);
                             $monB = $moNum-1;
                             $yearB = $year;
                         }
-                        echo("m=$monB&y=$yearB&f=$isVisible");
+                        echo("m=$monB&y=$yearB");
             ?>')"><</button>
         <div class="currentMonthDiv"><?php echo($currMo." ".$year) ?></div>
         <button id = "forMonth" style = "display:inline; margin-bottom:20px;"
@@ -58,31 +58,23 @@ $currMo = date("F", $date);
                     $monF = $moNum +1;
                     $yearF = $year;
                 }
-                echo("m=$monF&y=$yearF&f=$isVisible");
+                echo("m=$monF&y=$yearF");
             ?>')">></button>
     </div>
     <?php
-if(hasrole("admin"))
-    $sql = "select name, day, id, color, num_of_days\n"
-        . "from Appointments\n"
-        . "where month = $moNum"
+	if (hasrole("admin")) {
+		$privacy = "or privacy = 1 ";
+	} else {
+		$privacy = "";
+	}
+	$data = database()->retrieve_where("Appointments", "where month = $moNum"
         . " and year = $year\n"
-        . " and (privacy = 0 or privacy = 1 or creator_id = ".$_SESSION['id'].")"
-        . "order by day";
-else
-    $sql = "select name, day, id, color, num_of_days\n"
-        . "from Appointments\n"
-        . "where month = $moNum"
-        . " and year = $year\n"
-        . " and (privacy = 0 or creator_id = ".$_SESSION['id'].")"
-        . "order by day";
-    $result = mysql_query($sql);
-    echo(mysql_error());
+        . " and (privacy = 0 " . $privacy . "or creator_id = ".$_SESSION["user"]['id'].")"
+        . " order by day");
     $calItems = array();
     $calIds = array();
-    while($item = mysql_fetch_array($result))
-    {
-		for($i = 0;$i<=$item["num_of_days"];$i++){
+    foreach ($data as $item) {
+		for($i = 0;$i<=$item["num_of_days"];$i++) {
         	$calItems[$item["day"]+$i] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] .'</div>'.$calItems[$item["day"]+$i];
 		}
     }
@@ -102,31 +94,25 @@ else
     for($i=0;$i<5;$i++)
     {?>
     <div>
-            <table cellspacing="0" border="0" class="date-row"><tr>
+        <table cellspacing="0" border="0" class="date-row"><tr>
         <?php for($j=0; $j<7;$j++)
         {
             if($j<6)
-            {?>
-                <td class="day-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
-                      {
-                          $dom++;
-                          echo('<div class = "dayNumbers">'.$dom."</div>");
-                          echo('<div class = "appointments">'.$calItems[$dom].'</div>');
-                      }?></td>
-       <?php }
-             else
-             {?>
-                      <td class="saturday-value"><?php if($dow == $j or($dom >0 and $dom<$dim))
-                      {
-                          $dom++;
-                          echo('<div class = "dayNumbers">'.$dom."</div>");
-                          echo('<div class = "appointments">'.$calItems[$dom].'</div>');
-                      }?></td>
-        <?php }
-        } ?>
+            {
+				$value_class = "day";
+			} else {
+				$value_class = "saturday";
+			} ?>
+                <td class="<?php echo $value_class; ?>-value">
+<?php		if($dow == $j or($dom >0 and $dom<$dim)) {
+				$dom++;
+				echo('<div class = "dayNumbers">' . $dom . "</div>");
+				echo('<div class = "appointments">' . (isset($calItems[$dom]) ? $calItems[$dom] : "") . '</div>');
+			} ?></td>
+<?php	} ?>
         </tr></table></div>
-    <?php } ?>
+<?php
+	} ?>
     </div>
 </div>
 <div id="calendar-agenda-view"></div>
-

@@ -1,9 +1,5 @@
 <?php
-
-require_once("connect.php");
-
-$q = "SELECT count(*) FROM `Users`";
-$result = mysql_query($q);
-$count = mysql_fetch_array($result);?>
+require_once "connect.php";
+$data = database()->retrieve_sql("SELECT count(*) as id FROM `Users`"); ?>
 <h3>Employees</h3>
-<p><?php echo($count[0]);?> Registered Employees <a href="employeemanager.php">Manage</a></p>
+<p><?php echo(reset(reset($data)));?> Registered Employees <a href="employee_manager.php">Manage</a></p>

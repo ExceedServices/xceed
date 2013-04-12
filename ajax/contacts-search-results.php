@@ -13,7 +13,7 @@ if($_GET['q'] == "mufasa" || $_GET['q'] == "simba")
 
 ?>
 <?php
-require_once("../connect.php");
+require_once "../connect.php";
 $sql="
 select id, name, contact_phone, contact_person
 from Clients

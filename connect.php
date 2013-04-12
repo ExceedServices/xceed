@@ -1,5 +1,4 @@
 <?php
-
 require_once 'classes/Crypt.php';
 session_start();
 authenticate();
@@ -77,7 +76,6 @@ function normalize_array(&$potential_array) {
 	return $potential_array = is_array($potential_array) ? $potential_array : array($potential_array);
 }
 
-
 class Settings
 {
     public static $dbHost = "db.exceedcrew.com";
@@ -90,11 +88,9 @@ class Settings
 
 @include("config.php"); // Overwrite defaults with a local config... we don't care if it is missing.
 
-if ($_SERVER['HTTPS'] != "on" && Settings::$enforceSSL) 
+if ((empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on") && Settings::$enforceSSL)
 {
     $url = "https://". $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-    header("Location: $url");
+    header("Location: " . $url);
     exit;
-
-}  
-?>
+}
