@@ -3,14 +3,7 @@ require_once 'classes/Crypt.php';
 session_start();
 authenticate();
 function authenticate() {
-	$_SESSION["user"] = array(
-		'id' => 1,
-		'name' => "test",
-		'email' => "em@a.il",
-		'Roles' => "|admin|",
-		'phone' => "1111111111",
-		'canSMS' => true);
-	return;
+	
 	if (isset($_SESSION["user"])) {
 		return;
 	}
