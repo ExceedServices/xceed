@@ -8,6 +8,11 @@
 <?php
 foreach ($css as $css_file) { ?>
 	<link href="css/<?php echo $css_file; ?>.css" rel="stylesheet" />
+	foreach ($js as $js_file) { ?>
+	<script src="js/<?php echo $js_file; ?>.js"></script>
+		<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/whiteboard.js" ></script>
 <?php
 } ?>
 </head>
@@ -22,12 +27,9 @@ echo $userbar; ?>
 <?php
 echo $content; ?>
 	</div>
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/whiteboard.js" ></script>
+
 <?php
-foreach ($js as $js_file) { ?>
-	<script src="js/<?php echo $js_file; ?>.js"></script>
+
 <?php
 } ?>
 </body></html>
