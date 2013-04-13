@@ -28,6 +28,4 @@ echo $userbar; ?>
 echo $content; ?>
 	</div>
 
-<?php
-} ?>
 </body></html>
