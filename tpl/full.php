@@ -29,7 +29,5 @@ echo $content; ?>
 	</div>
 
 <?php
-
-<?php
 } ?>
 </body></html>
