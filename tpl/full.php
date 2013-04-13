@@ -9,12 +9,13 @@
 foreach ($css as $css_file) { ?>
 	<link href="css/<?php echo $css_file; ?>.css" rel="stylesheet" />
 	<?php } foreach ($js as $js_file) { ?>
-	<script src="js/<?php echo $js_file; ?>.js"></script>
+	<script src="<?php echo $js_file; ?>.js"></script>
+<?php
+} ?>
 		<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/whiteboard.js" ></script>
-<?php
-} ?>
+
 </head>
 <body>
 	<div id="logo"><a href="http://exceedservices.com" target="_blank"><img src="logo.jpg" alt="Exceed"/></a></div>
