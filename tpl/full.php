@@ -8,7 +8,7 @@
 <?php
 foreach ($css as $css_file) { ?>
 	<link href="css/<?php echo $css_file; ?>.css" rel="stylesheet" />
-	<?php } foreach ($js as $js_file) { ?>
+	foreach ($js as $js_file) { ?>
 	<script src="js/<?php echo $js_file; ?>.js"></script>
 		<script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
