@@ -1,1 +1,0 @@
-		        <?php echo($_SESSION['user']['name']);?> <a href="killsession.php">X</a>

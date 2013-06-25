@@ -1,5 +1,11 @@
 <?php 
 require_once("../connect.php");
 
-database()->delete("clients", $_REQUEST['value']);
-header("location: ../dashboard.php");
+    $id = mysql_real_escape_string($_REQUEST['value']);
+    $q = "DELETE FROM `Clients` WHERE id = '$id' LIMIT 1";
+    $result = mysql_query($q);
+    if ($result)
+        header("location: ../dashboard.php");
+    else
+        die(mysql_error());
+?>     

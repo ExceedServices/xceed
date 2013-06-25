@@ -98,7 +98,7 @@ while($item = mysql_fetch_array($result))
                    <label for="startTime">Start Time</label>
                </td>
                <td>
-                   <input id="startTime" type="datetime" class="datetime" name="start_time" value="<?php echo $start; ?>"/>
+                   <input id="startTime" type="datetime" class="datetime" name="start_time" value="<?php echo $start; ?>" required="required"/>
                </td>
            </tr>
            <tr>
@@ -106,7 +106,7 @@ while($item = mysql_fetch_array($result))
                    <label for="endTime">End Time</label>
                </td>
                <td>
-                   <input id="endTime" class = "datetime" type="datetime" name="end_time" value="<?php echo $end; ?>"/>
+                   <input id="endTime" class = "datetime" type="datetime" name="end_time" value="<?php echo $end; ?>" required="required"/>
                </td>
            </tr>
            <tr>
