@@ -55,7 +55,7 @@
                    <label for="startTime">Start Time</label>
                </td>
                <td>
-                   <input id="startTime" type="datetime" class="datetime" name="start_time"/>
+                   <input id="startTime" type="datetime" class="datetime" name="start_time" required="required"/>
                </td>
            </tr>
            <tr>
@@ -63,7 +63,7 @@
                    <label for="endTime">End Time</label>
                </td>
                <td>
-                   <input id="endTime" class = "datetime" type="datetime" name="end_time"/>
+                   <input id="endTime" class = "datetime" type="datetime" name="end_time" required="required"/>
                </td>
            </tr>
            <tr>
