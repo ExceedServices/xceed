@@ -63,14 +63,14 @@ $currMo = date("F", $date);
     </div>
     <?php
 if(hasrole("admin"))
-    $sql = "select name, day, id, color, num_of_days\n"
+    $sql = "select * \n"
         . "from Appointments\n"
         . "where month = $moNum"
         . " and year = $year\n"
         . " and (privacy = 0 or privacy = 1 or creator_id = ".$_SESSION['id'].")"
         . "order by day";
 else
-    $sql = "select name, day, id, color, num_of_days\n"
+    $sql = "select *\n"
         . "from Appointments\n"
         . "where month = $moNum"
         . " and year = $year\n"
@@ -80,10 +80,11 @@ else
     echo(mysql_error());
     $calItems = array();
     $calIds = array();
-    while($item = mysql_fetch_array($result))
+    while($item = mysql_fetch_assoc($result))
     {
 		for($i = 0;$i<=$item["num_of_days"];$i++){
-        	$calItems[$item["day"]+$i] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] .'</div>'.$calItems[$item["day"]+$i];
+        	$calItems[$item["day"]+$i] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] ." #". $item['job_id'].'</div>'.$calItems[$item["day"]+$i];
+            echo join(($item));
 		}
     }
     ?>
