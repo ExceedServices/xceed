@@ -83,7 +83,10 @@ else
     while($item = mysql_fetch_array($result))
     {
 		for($i = 0;$i<=$item["num_of_days"];$i++){
-        	$calItems[$item["day"]+$i] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] ." #". $item["job_id"].'</div>'.$calItems[$item["day"]+$i];
+            if ($item['job_id'] == "")
+                $job = "";
+            else $job = " #". $item['job_id'];
+        	$calItems[$item["day"]+$i] = '<div class="cal-item" style="background-color:'.$item["color"].';" data-detail-key="'.$item["id"].'" id="'.$item["id"].'">'.$item["name"] . $job.'</div>'.$calItems[$item["day"]+$i];
 		}
     }
     ?>
