@@ -81,7 +81,7 @@ STUFF;
 if(hasRole("admin") || $item['creator_id'] == $_SESSION['id'])
 {
 ?>
-    <button data-delete style="display:inline;" id='delete-appointment' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' >Delete</button>
+    <button data-delete style="display:inline;float: right;" class="floatreset" id='delete-appointment' data-id="<?php echo($_GET['id']); ?>" data-table='Appointments' >Delete</button>
     <button style="display:inline;" id='edit-appointment'>Edit</button>
 <?php } ?>
 </div>
