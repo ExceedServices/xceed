@@ -55,22 +55,7 @@ $currMo = date("F", $date);?>
             ?>')">></button>
     </div>
 */?>
-    <div class="header-row" style="text-align:center; margin:5;">
-        <div class="cal-nav-item" nav-key="m=<?php echo($moNum.'&y='.($year-1).'">'.($year-1)); ?></div>
-        <div class="<?php if($moNum==1){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('1&y='.$year); ?>">Jan</div>
-        <div class="<?php if($moNum==2){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('2&y='.$year); ?>">Feb</div>
-        <div class="<?php if($moNum==3){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('3&y='.$year); ?>">Mar</div>
-        <div class="<?php if($moNum==4){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('4&y='.$year); ?>">Apr</div>
-        <div class="<?php if($moNum==5){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('5&y='.$year); ?>">May</div>
-        <div class="<?php if($moNum==6){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('6&y='.$year); ?>">Jun</div>
-        <div class="<?php if($moNum==7){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('7&y='.$year); ?>">Jul</div>
-        <div class="<?php if($moNum==8){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('8&y='.$year); ?>">Aug</div>
-        <div class="<?php if($moNum==9){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('9&y='.$year); ?>">Sep</div>
-        <div class="<?php if($moNum==10){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('10&y='.$year); ?>">Oct</div>
-        <div class="<?php if($moNum==11){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('11&y='.$year); ?>">Nov</div>
-        <div class="<?php if($moNum==12){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('12&y='.$year); ?>">Dec</div>
-        <div class="cal-nav-item" nav-key="m=<?php echo($moNum.'&y='.($year+1).'">'.($year+1)); ?></div>
-    </div>
+
 <div style="height:15px;"></div>
     <?php
 if(hasrole("admin"))
@@ -140,4 +125,20 @@ else
         } ?>
         </tr></table></div>
     <?php } ?>
+        <div class="header-row" style="text-align:center; margin:5;">
+        <div class="cal-nav-item" nav-key="m=<?php echo($moNum.'&y='.($year-1).'">'.($year-1)); ?></div>
+        <div class="<?php if($moNum==1){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('1&y='.$year); ?>">Jan</div>
+        <div class="<?php if($moNum==2){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('2&y='.$year); ?>">Feb</div>
+        <div class="<?php if($moNum==3){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('3&y='.$year); ?>">Mar</div>
+        <div class="<?php if($moNum==4){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('4&y='.$year); ?>">Apr</div>
+        <div class="<?php if($moNum==5){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('5&y='.$year); ?>">May</div>
+        <div class="<?php if($moNum==6){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('6&y='.$year); ?>">Jun</div>
+        <div class="<?php if($moNum==7){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('7&y='.$year); ?>">Jul</div>
+        <div class="<?php if($moNum==8){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('8&y='.$year); ?>">Aug</div>
+        <div class="<?php if($moNum==9){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('9&y='.$year); ?>">Sep</div>
+        <div class="<?php if($moNum==10){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('10&y='.$year); ?>">Oct</div>
+        <div class="<?php if($moNum==11){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('11&y='.$year); ?>">Nov</div>
+        <div class="<?php if($moNum==12){ echo('current-cal-nav-item');}else {echo('cal-nav-item');}?>" nav-key="m=<?php echo('12&y='.$year); ?>">Dec</div>
+        <div class="cal-nav-item" nav-key="m=<?php echo($moNum.'&y='.($year+1).'">'.($year+1)); ?></div>
+    </div>
     </div>
