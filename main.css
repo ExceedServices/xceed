@@ -120,15 +120,38 @@ a img
     clear:both;
     height:20px;
     max-width:960px;
+    min-width:80%;
     width:100%;
     margin:auto;
     outline:1px #888888 solid;
 }
 
+.cal-nav-item
+{
+    float:left;
+    width:-webkit-calc(100%/14);
+    width:-moz-calc(100%/14);
+    height:100%;
+    text-align:center;
+    outline:1px #888888 solid;
+}
+
+.current-cal-nav-item
+{
+    float:left;
+    width:-webkit-calc(100%/14);
+    width:-moz-calc(100%/14);
+    height:100%;
+    text-align:center;
+    outline:1px #888888 solid;
+    background-color:#1F75FF;
+}
+
 .day-header
 {
     float:left;
-    width:14%;
+    width:-webkit-calc(100%/7);
+    width:-moz-calc(100%/7);
     height:100%;
     text-align:center;
 }
