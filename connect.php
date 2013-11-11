@@ -2,6 +2,7 @@
 
 class Settings
 {
+    //These are the details for the crap database. Make sure there's a config.php to point to the one you want.
     public static $dbHost = "db.exceedcrew.com";
     public static $dbUser = "xceeddev";
     public static $dbPass = "xceeddev";
