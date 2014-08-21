@@ -1,7 +1,11 @@
-$(document).ready(function ()
-{
-    $("#calendar-month-view").load('/ajax/calendar-month.php?');
-    $('body').click(function (event)
+$(function(){
+    $(document).ready(function ()
+    {
+        $("#calendar-month-view").load('/ajax/calendar-month.php?');
+        //$('body').click(clickevent);
+        $('body').bind("tap",clickevent);
+    });
+    function clickevent (event)
     {
         if ($(event.target).is("#edit-appointment"))
         {
@@ -87,5 +91,5 @@ $(document).ready(function ()
                 $('#calendar-month-view').slideDown();
             });
         }
-    });
+    }
 });
