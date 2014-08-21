@@ -137,7 +137,8 @@ while($item = mysql_fetch_array($result))
         
         
         <input type="submit" value="Save"/>
-        <button id="cancel-calendar-button">Cancel</button>
+        <button id="cancel-calendar-button" style="float: right">Cancel</button>
+        <br class="floatreset"/>
      </form>
 </div>
 <script type="text/javascript">
