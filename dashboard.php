@@ -17,9 +17,9 @@ if(!isset($_SESSION['id']))
         <link rel="stylesheet" href="js/color-picker/colorPicker.css" type="text/css"></link>
         
         <!-- 3rd Party -->
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>-->
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
         <!--<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>-->
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>-->
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
         <!--<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
         <script type="text/javascript" src="js/color-picker/jquery.colorPicker.js"></script>
