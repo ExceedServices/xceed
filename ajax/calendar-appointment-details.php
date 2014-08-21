@@ -67,7 +67,7 @@ while ($item = mysql_fetch_assoc($reader))
                 <p/>
                 <div>
                     <div>Notes:</div>
-                    <pre style='width:350px;'>{$notes}</pre>
+                    <pre>{$notes}</pre>
                     <div id="calandar-appointment-crew">
                     {$crew}
                     </div>
