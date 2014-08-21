@@ -57,7 +57,7 @@ echo mysql_error();
     </head>
     <body>
         <div class="bodywrap">
-            <div id="logo"><a href="http://exceedservices.com"><img src="logo.jpg" /></a></div>
+            <div id="logo"><a href="http://exceedservices.com"><img src="exceed-logo.png" /></a></div>
 
             <div id="userbar">
                 <form method="post">
