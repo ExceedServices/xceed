@@ -78,7 +78,7 @@ $(document).ready(function ()
         }
         if ($(event.target).is(".cal-nav-item"))
         {
-            $('#calendar-month-view').slideUp();
+            //$('#calendar-month-view').slideUp();
             var nav;
             nav = $(event.target).attr("nav-key");
             $("#calendar-month-view").load('ajax/calendar-month.php?'+nav, function()
