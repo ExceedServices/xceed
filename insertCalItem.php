@@ -53,6 +53,7 @@ else
             mysql_query($q);
         }
     }
+//echo($insertSQL);
 		header("location: dashboard.php");
 	
 
