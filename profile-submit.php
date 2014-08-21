@@ -13,7 +13,7 @@ $phone = $_REQUEST['phone'];
 $email = $_REQUEST['email'];
 $canSMS = $_REQUEST['canSMS']== "on";
 if ($_REQUEST['password']!= ""||$_REQUEST['password-confirm']!="" && $_REQUEST['password']==$_REQUEST['password-confirm'])
-    $maybepassword = "password = '".Crypt::hash($_REQUEST['password']) ."'";
+    $maybepassword = ", password = '".Crypt::hash($_REQUEST['password']) ."'";
 else
     $maybepassword="";
 
@@ -27,5 +27,7 @@ if (mysql_query($q))
     $_SESSION['canSMS'] = $canSMS;
     header("location: dashboard.php");
 }
-else{die(my_sql_error());}
+else{ 
+    echo($q);
+    die(mysql_error());}
 ?>

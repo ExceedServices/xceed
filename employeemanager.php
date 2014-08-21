@@ -74,6 +74,17 @@ if(hasRole("admin"))
 	        </div>
             <br class="floatreset"/><p></p>
 <?php
+if(isset($_GET['userId']) && isset($_GET['reset'])){
+    $id = mysql_real_escape_string($_GET['userId']);
+    $sql= "update Users set password = '".Crypt::hash('changeme')."' where id = '".$id."'";
+    $result = mysql_query($sql);
+    if(!$result)
+    {
+        echo($sql);
+        die(mysql_error());
+    }
+    echo("User's password is now 'changeme'.");
+}
 if($_GET['a'] == 1)
 {
     $form=
@@ -128,15 +139,8 @@ echo(
     <td>{$user['Roles']}</td>
     <td>{$user['phone']}</td>
     <td><a href="employeemanager.php?id={$user['id']}">Edit</a></td>
+    <td><a href="employeemanager.php?userId={$user['id']}&reset=y">Reset Password</a></td>
 </tr>
-<!--<div id='{$user['id']}'>
-    <div style='display:inline;'>{$user['name']}</div>
-    <div style='display:inline;'>{$user['email']}</div>
-    <div style='display:inline;'>{$user['Roles']}</div>
-    <div style='display:inline;'>{$user['phone']}</div>
-    <a style='display:inline;' data-id='{$user['id']}'>Edit</a>
-</div>
-<br class="floatreset"/>-->
 DIV
 );}
 } ?>
