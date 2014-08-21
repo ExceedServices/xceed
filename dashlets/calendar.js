@@ -1,7 +1,15 @@
-$(document).ready(function () {
-    $("#calendar-month-view").load('/ajax/calendar-month.php?');
-    $('body').click(function (event) {
-        if ($(event.target).is("#edit-appointment")) {
+
+$(function(){
+    $(document).ready(function ()
+    {
+        $("#calendar-month-view").load('/ajax/calendar-month.php?');
+        //$('body').click(clickevent);
+        $('body').bind("tap",clickevent);
+    });
+    function clickevent (event)
+    {
+        if ($(event.target).is("#edit-appointment"))
+        {
             var id = $("#calendar-details-div").attr("data-key");
             $("#calendar-agenda-view").slideUp();
             $("#calendar-agenda-view").load('ajax/edit-calendar-details.php?id=' + id, function () {
@@ -64,5 +72,5 @@ $(document).ready(function () {
                 $('#calendar-month-view').slideDown();
             });
         }
-    });
+    }
 });

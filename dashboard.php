@@ -21,6 +21,7 @@ if(!isset($_SESSION['id']))
         <script type="text/javascript" src="js/color-picker/jquery.colorPicker.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 		<script type="text/javascript" src="js/datetimepicker.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
                 
         <!-- Ours -->
         <script type="text/javascript" src="js/whiteboard.js" ></script>
