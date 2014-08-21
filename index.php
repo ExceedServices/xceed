@@ -50,8 +50,9 @@ echo mysql_error();
         <link rel="stylesheet" href="main.css" type="text/css"></link>
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
         <script type="text/javascript" src="js/whiteboard.js" ></script>
-        <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+
         
         <!-- Don't remove, it's for google apps domain ownership verification -->
         <meta name="google-site-verification" content="39FFXcwSILWlm-iOkbVAGF0n_wGstNWYkq_N6E8X2-U" />
